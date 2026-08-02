@@ -1,5 +1,19 @@
-console.log("OAS Management System Loaded Successfully");
-
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("Website Ready");
+
+console.log("OAS Management System Loaded");
+
+const buttons = document.querySelectorAll(".btn");
+
+buttons.forEach(button => {
+
+button.addEventListener("click", function(e){
+
+e.preventDefault();
+
+alert("This module is under development.");
+
+});
+
+});
+
 });
