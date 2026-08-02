@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Loan History • OAS Management</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <meta name="description" content="Loan history and records — OAS Management System" />
+</head>
+<body class="oas-dark oas-app">
+  <main class="oas-container" id="loan-history">
+    <header class="oas-header oas-header--compact">
+      <div>
+        <h1 class="oas-title">Loan History</h1>
+        <p class="oas-subtitle">Review and manage loan records</p>
+      </div>
+      <div class="oas-actions">
+        <button class="oas-btn oas-btn--ghost" onclick="location.href='../index.html'" aria-label="Back to Home">← Back to Home</button>
+        <div class="oas-action-group">
+          <button class="oas-btn oas-btn--secondary" id="print-btn" onclick="printPage()">Print</button>
+          <button class="oas-btn oas-btn--primary" id="download-pdf" onclick="downloadPDF()">Download PDF</button>
+        </div>
+      </div>
+    </header>
+
+    <section class="oas-panel">
+      <div class="oas-row oas-row--stack-sm">
+        <div class="oas-col oas-col--8">
+          <label class="oas-label" for="search">Search loans</label>
+          <div class="oas-input-group">
+            <input id="search" class="oas-input" type="search" placeholder="Search by Loan ID, Loan Type, or Status" aria-label="Search loans" />
+            <button class="oas-btn oas-btn--icon" id="clear-search" title="Clear search" aria-label="Clear search">✕</button>
+          </div>
+        </div>
+
+        <div class="oas-col oas-col--4">
+          <label class="oas-label" for="filter-status">Filter status</label>
+          <select id="filter-status" class="oas-select" aria-label="Filter by loan status">
+            <option value="">All statuses</option>
+            <option value="Active">Active</option>
+            <option value="Paid">Paid</option>
+            <option value="Overdue">Overdue</option>
+            <option value="Restructured">Restructured</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <section class="oas-panel oas-panel--flush">
+      <div class="oas-table-wrap">
+        <table class="oas-table" id="loan-table" aria-describedby="loan-help">
+          <caption id="loan-help" class="oas-visually-hidden">List of loans with status, amounts and dates</caption>
+          <thead>
+            <tr>
+              <th scope="col">Loan ID</th>
+              <th scope="col">Loan Type</th>
+              <th scope="col">Loan Amount</th>
+              <th scope="col">Interest</th>
+              <th scope="col">Weekly Payment</th>
+              <th scope="col">Remaining Balance</th>
+              <th scope="col">Loan Status</th>
+              <th scope="col">Release Date</th>
+              <th scope="col">Due Date</th>
+              <th scope="col" class="oas-table__actions">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Example rows. In production these will be rendered server-side or via JS -->
+            <tr data-loan-id="LN-1001">
+              <td class="mono">LN-1001</td>
+              <td>Personal</td>
+              <td>₦ 500,000.00</td>
+              <td>12% p.a.</td>
+              <td>₦ 5,000.00</td>
+              <td>₦ 120,000.00</td>
+              <td><span class="oas-chip status-active">Active</span></td>
+              <td>2024-02-10</td>
+              <td>2026-12-10</td>
+              <td class="oas-table__actions">
+                <div class="oas-action-stack">
+                  <button class="oas-btn oas-btn--sm" onclick="viewDetails('LN-1001')">View</button>
+                  <button class="oas-btn oas-btn--ghost oas-btn--sm" onclick="printLoan('LN-1001')">Print</button>
+                  <button class="oas-btn oas-btn--outline oas-btn--sm" onclick="downloadLoanPDF('LN-1001')">PDF</button>
+                </div>
+              </td>
+            </tr>
+
+            <tr data-loan-id="LN-0975">
+              <td class="mono">LN-0975</td>
+              <td>Business</td>
+              <td>₦ 2,000,000.00</td>
+              <td>9.5% p.a.</td>
+              <td>₦ 20,000.00</td>
+              <td>₦ 0.00</td>
+              <td><span class="oas-chip status-paid">Paid</span></td>
+              <td>2020-06-01</td>
+              <td>2023-06-01</td>
+              <td class="oas-table__actions">
+                <div class="oas-action-stack">
+                  <button class="oas-btn oas-btn--sm" onclick="viewDetails('LN-0975')">View</button>
+                  <button class="oas-btn oas-btn--ghost oas-btn--sm" onclick="printLoan('LN-0975')">Print</button>
+                  <button class="oas-btn oas-btn--outline oas-btn--sm" onclick="downloadLoanPDF('LN-0975')">PDF</button>
+                </div>
+              </td>
+            </tr>
+
+            <tr data-loan-id="LN-1123">
+              <td class="mono">LN-1123</td>
+              <td>Mortgage</td>
+              <td>₦ 15,000,000.00</td>
+              <td>7.2% p.a.</td>
+              <td>₦ 85,000.00</td>
+              <td>₦ 3,200,000.00</td>
+              <td><span class="oas-chip status-restructured">Restructured</span></td>
+              <td>2022-03-15</td>
+              <td>2032-03-15</td>
+              <td class="oas-table__actions">
+                <div class="oas-action-stack">
+                  <button class="oas-btn oas-btn--sm" onclick="viewDetails('LN-1123')">View</button>
+                  <button class="oas-btn oas-btn--ghost oas-btn--sm" onclick="printLoan('LN-1123')">Print</button>
+                  <button class="oas-btn oas-btn--outline oas-btn--sm" onclick="downloadLoanPDF('LN-1123')">PDF</button>
+                </div>
+              </td>
+            </tr>
+
+            <tr data-loan-id="LN-1200">
+              <td class="mono">LN-1200</td>
+              <td>Staff</td>
+              <td>₦ 150,000.00</td>
+              <td>0% p.a.</td>
+              <td>₦ 2,885.00</td>
+              <td>₦ 10,000.00</td>
+              <td><span class="oas-chip status-overdue">Overdue</span></td>
+              <td>2025-01-05</td>
+              <td>2026-07-05</td>
+              <td class="oas-table__actions">
+                <div class="oas-action-stack">
+                  <button class="oas-btn oas-btn--sm" onclick="viewDetails('LN-1200')">View</button>
+                  <button class="oas-btn oas-btn--ghost oas-btn--sm" onclick="printLoan('LN-1200')">Print</button>
+                  <button class="oas-btn oas-btn--outline oas-btn--sm" onclick="downloadLoanPDF('LN-1200')">PDF</button>
+                </div>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+      <div class="oas-table-footer">
+        <div class="oas-pagination">
+          <button class="oas-btn oas-btn--ghost" aria-label="Previous page">←</button>
+          <span class="oas-pagination__info">Showing 1–4 of 4 loans</span>
+          <button class="oas-btn oas-btn--ghost" aria-label="Next page">→</button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="oas-footer">
+      <small>OAS Management System — Secure loan record keeping</small>
+    </footer>
+  </main>
+
+  <script src="../js/app.js"></script>
+  <script>
+    // Minimal page behaviour hooks that integrate with ../js/app.js
+    // The real implementations should live in ../js/app.js in the application.
+    function viewDetails(id){
+      // delegate to app
+      if(window.app && typeof window.app.viewLoan === 'function') return window.app.viewLoan(id);
+      // fallback: navigate to loan detail page
+      location.href = '../loan/detail.html?id=' + encodeURIComponent(id);
+    }
+
+    function printLoan(id){
+      if(window.app && typeof window.app.printLoan === 'function') return window.app.printLoan(id);
+      // simple fallback: open print view
+      const w = window.open('../loan/detail.html?id='+encodeURIComponent(id), '_blank');
+      if(w) w.print();
+    }
+
+    function downloadLoanPDF(id){
+      if(window.app && typeof window.app.downloadLoanPDF === 'function') return window.app.downloadLoanPDF(id);
+      // fallback: call backend endpoint (placeholder)
+      const link = document.createElement('a');
+      link.href = '/api/loans/' + encodeURIComponent(id) + '/pdf';
+      link.download = id + '.pdf';
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+    }
+
+    function printPage(){
+      window.print();
+    }
+
+    function downloadPDF(){
+      if(window.app && typeof window.app.downloadTablePDF === 'function') return window.app.downloadTablePDF('#loan-table');
+      // fallback: print to pdf
+      window.print();
+    }
+
+    // Search + filter
+    (function(){
+      const searchEl = document.getElementById('search');
+      const filterEl = document.getElementById('filter-status');
+      const clearBtn = document.getElementById('clear-search');
+      const table = document.getElementById('loan-table');
+      const rows = Array.from(table.tBodies[0].rows);
+
+      function normalize(s){ return (s||'').toString().toLowerCase(); }
+
+      function applyFilters(){
+        const q = normalize(searchEl.value.trim());
+        const status = filterEl.value;
+
+        let visible = 0;
+        rows.forEach(row => {
+          const cellsText = normalize(row.innerText);
+          const matchesQuery = q === '' || cellsText.indexOf(q) !== -1;
+          const rowStatus = (row.querySelector('.oas-chip')||{}).innerText || '';
+          const matchesStatus = status === '' || rowStatus === status;
+          const show = matchesQuery && matchesStatus;
+          row.style.display = show ? '' : 'none';
+          if(show) visible++;
+        });
+
+        const info = document.querySelector('.oas-pagination__info');
+        if(info) info.textContent = `Showing ${visible>0?1:0}–${visible} of ${rows.length} loans`;
+      }
+
+      searchEl.addEventListener('input', applyFilters);
+      filterEl.addEventListener('change', applyFilters);
+      clearBtn.addEventListener('click', ()=>{ searchEl.value=''; applyFilters(); searchEl.focus(); });
+    })();
+  </script>
+
+</body>
+</html>
