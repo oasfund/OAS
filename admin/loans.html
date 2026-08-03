@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -27,13 +26,15 @@
 
 <tr>
 
-<th>Reference No.</th>
+<th>Reference</th>
 
 <th>Borrower</th>
 
 <th>Amount</th>
 
 <th>Status</th>
+
+<th>Action</th>
 
 </tr>
 
@@ -51,19 +52,39 @@ Back to Dashboard
 
 <script>
 
-const loans = JSON.parse(localStorage.getItem("oas_loans")) || [];
+let loans=JSON.parse(localStorage.getItem("oas_loans"))||[];
 
-const table = document.getElementById("loanTable");
+const table=document.getElementById("loanTable");
 
-if(loans.length===0){
+function loadLoans(){
 
-table.innerHTML += `
+table.innerHTML=`
 
 <tr>
 
-<td colspan="4" align="center">
+<th>Reference</th>
 
-No Loan Applications Found
+<th>Borrower</th>
+
+<th>Amount</th>
+
+<th>Status</th>
+
+<th>Action</th>
+
+</tr>
+
+`;
+
+if(loans.length===0){
+
+table.innerHTML+=`
+
+<tr>
+
+<td colspan="5" align="center">
+
+No Loan Applications
 
 </td>
 
@@ -71,11 +92,13 @@ No Loan Applications Found
 
 `;
 
-}else{
+return;
 
-loans.forEach(loan=>{
+}
 
-table.innerHTML += `
+loans.forEach((loan,index)=>{
+
+table.innerHTML+=`
 
 <tr>
 
@@ -87,6 +110,22 @@ table.innerHTML += `
 
 <td>${loan.status}</td>
 
+<td>
+
+<button onclick="approve(${index})">
+
+Approve
+
+</button>
+
+<button onclick="reject(${index})">
+
+Reject
+
+</button>
+
+</td>
+
 </tr>
 
 `;
@@ -95,7 +134,30 @@ table.innerHTML += `
 
 }
 
+function approve(index){
+
+loans[index].status="Approved";
+
+localStorage.setItem("oas_loans",JSON.stringify(loans));
+
+loadLoans();
+
+}
+
+function reject(index){
+
+loans[index].status="Rejected";
+
+localStorage.setItem("oas_loans",JSON.stringify(loans));
+
+loadLoans();
+
+}
+
+loadLoans();
+
 </script>
 
 </body>
+
 </html>
