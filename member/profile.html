@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Member Profile</title>
+<title>My Profile</title>
 
 <link rel="stylesheet" href="../css/style.css">
 
@@ -15,33 +15,77 @@
 
 <header>
 
-<h1>👤 Member Profile</h1>
+<h1>👤 MY PROFILE</h1>
+
+<p>OAS Management System</p>
+
+<nav>
+
+<a href="dashboard.html">Dashboard</a>
+<a href="profile.html">Profile</a>
+<a href="my-loans.html">My Loans</a>
+<a href="contributions.html">Contributions</a>
+<a href="referrals.html">Referrals</a>
+
+</nav>
 
 </header>
 
 <main class="container">
 
-<h2>My Information</h2>
+<form id="profileForm">
 
-<div id="profile"></div>
+<label>Member ID</label>
+
+<input
+type="text"
+id="memberId"
+readonly>
+
+<label>Full Name</label>
+
+<input
+type="text"
+id="fullName"
+required>
+
+<label>Mobile Number</label>
+
+<input
+type="text"
+id="mobile"
+required>
+
+<label>Email Address</label>
+
+<input
+type="email"
+id="email"
+required>
+
+<label>Complete Address</label>
+
+<textarea
+id="address"
+required></textarea>
 
 <br>
 
-<a href="dashboard.html">
+<button type="submit">
 
-<button>
-
-Back to Dashboard
+Update Profile
 
 </button>
 
-</a>
+</form>
 
 </main>
 
+<script src="../js/app.js"></script>
+
 <script>
 
-const member=JSON.parse(localStorage.getItem("oas_current_member"));
+const member=JSON.parse(localStorage.getItem(STORAGE.currentMember));
 
 if(!member){
 
@@ -49,26 +93,41 @@ window.location="login.html";
 
 }
 
-document.getElementById("profile").innerHTML=`
+memberId.value=member.memberId;
 
-<p><strong>Member ID:</strong> ${member.memberId}</p>
+fullName.value=member.fullName;
 
-<p><strong>Full Name:</strong> ${member.fullName}</p>
+mobile.value=member.mobile;
 
-<p><strong>Birth Date:</strong> ${member.birthDate}</p>
+email.value=member.email;
 
-<p><strong>Mobile:</strong> ${member.mobile}</p>
+address.value=member.address;
 
-<p><strong>Email:</strong> ${member.email}</p>
+document.getElementById("profileForm").addEventListener("submit",function(e){
 
-<p><strong>Address:</strong> ${member.address}</p>
+e.preventDefault();
 
-<p><strong>Username:</strong> ${member.username}</p>
+let members=getData(STORAGE.members);
 
-`;
+const index=members.findIndex(m=>m.memberId===member.memberId);
+
+members[index].fullName=fullName.value;
+
+members[index].mobile=mobile.value;
+
+members[index].email=email.value;
+
+members[index].address=address.value;
+
+saveData(STORAGE.members,members);
+
+localStorage.setItem(STORAGE.currentMember,JSON.stringify(members[index]));
+
+alert("Profile Updated Successfully.");
+
+});
 
 </script>
 
 </body>
-
 </html>
