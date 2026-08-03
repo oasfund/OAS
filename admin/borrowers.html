@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -15,19 +14,31 @@
 
 <header>
 
-<h1>👥 Borrowers Masterlist</h1>
+<h1>👤 BORROWERS MASTERLIST</h1>
+
+<nav>
+
+<a href="dashboard.html">Dashboard</a>
+<a href="members.html">Members</a>
+<a href="borrowers.html">Borrowers</a>
+<a href="loans.html">Loans</a>
+<a href="releases.html">Releases</a>
+<a href="collections.html">Collections</a>
+<a href="reports.html">Reports</a>
+
+</nav>
 
 </header>
 
 <main class="container">
 
-<h2>All Borrowers</h2>
+<h2>Borrower Records</h2>
 
-<table border="1" width="100%" id="borrowerTable">
+<table id="borrowerTable">
 
 <tr>
 
-<th>Reference</th>
+<th>Reference No.</th>
 
 <th>Borrower</th>
 
@@ -65,7 +76,7 @@ table.innerHTML+=`
 
 <td colspan="5" align="center">
 
-No Borrowers Found
+No Borrower Records Found
 
 </td>
 
@@ -87,7 +98,7 @@ table.innerHTML+=`
 
 <td>${loan.mobile}</td>
 
-<td>₱${loan.amount}</td>
+<td>₱${Number(loan.amount).toFixed(2)}</td>
 
 <td>${loan.status}</td>
 
@@ -102,5 +113,4 @@ table.innerHTML+=`
 </script>
 
 </body>
-
 </html>
