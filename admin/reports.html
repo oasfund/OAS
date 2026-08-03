@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>OAS Reports</title>
+<title>Executive Reports</title>
 
 <link rel="stylesheet" href="../css/style.css">
 
@@ -14,81 +15,120 @@
 
 <header>
 
-<h1>📊 OAS Reports</h1>
+<h1>📊 EXECUTIVE REPORTS</h1>
+
+<p>OAS Management System</p>
+
+<nav>
+
+<a href="dashboard.html">Dashboard</a>
+<a href="members.html">Members</a>
+<a href="borrowers.html">Borrowers</a>
+<a href="loans.html">Loans</a>
+<a href="releases.html">Releases</a>
+<a href="collections.html">Collections</a>
+<a href="reports.html">Reports</a>
+
+</nav>
 
 </header>
 
 <main class="container">
 
-<h2>System Summary</h2>
-
 <div class="card">
 
-<p><strong>Total Members :</strong> <span id="members"></span></p>
+<h2>System Summary</h2>
 
-<p><strong>Total Loan Applications :</strong> <span id="loans"></span></p>
+<table>
 
-<p><strong>Pending Loans :</strong> <span id="pending"></span></p>
+<tr>
+<td>Total Members</td>
+<td id="members"></td>
+</tr>
 
-<p><strong>Approved Loans :</strong> <span id="approved"></span></p>
+<tr>
+<td>Total Borrowers</td>
+<td id="borrowers"></td>
+</tr>
 
-<p><strong>Rejected Loans :</strong> <span id="rejected"></span></p>
+<tr>
+<td>Total Loan Portfolio</td>
+<td id="portfolio"></td>
+</tr>
 
-<p><strong>Total Contributions :</strong> ₱<span id="contributions"></span></p>
+<tr>
+<td>Total Collections</td>
+<td id="collections"></td>
+</tr>
 
-<p><strong>Total Referral Incentives :</strong> ₱<span id="referrals"></span></p>
+<tr>
+<td>Outstanding Balance</td>
+<td id="balance"></td>
+</tr>
+
+<tr>
+<td>Pending Loans</td>
+<td id="pending"></td>
+</tr>
+
+<tr>
+<td>Approved Loans</td>
+<td id="approved"></td>
+</tr>
+
+<tr>
+<td>Released Loans</td>
+<td id="released"></td>
+</tr>
+
+<tr>
+<td>Completed Loans</td>
+<td id="completed"></td>
+</tr>
+
+</table>
 
 </div>
 
-<br>
-
-<button onclick="window.location='dashboard.html'">
-
-Back to Dashboard
-
-</button>
-
 </main>
+
+<script src="../js/app.js"></script>
 
 <script>
 
-const members=JSON.parse(localStorage.getItem("oas_members"))||[];
+const summary=dashboardSummary();
 
-const loans=JSON.parse(localStorage.getItem("oas_loans"))||[];
+document.getElementById("members").textContent=summary.members;
 
-const contributions=JSON.parse(localStorage.getItem("oas_contributions"))||[];
+document.getElementById("borrowers").textContent=summary.borrowers;
 
-const referrals=JSON.parse(localStorage.getItem("oas_referrals"))||[];
+document.getElementById("pending").textContent=summary.pending;
 
-document.getElementById("members").innerHTML=members.length;
+document.getElementById("approved").textContent=summary.approved;
 
-document.getElementById("loans").innerHTML=loans.length;
+document.getElementById("released").textContent=summary.released;
 
-document.getElementById("pending").innerHTML=loans.filter(x=>x.status==="Pending").length;
+document.getElementById("completed").textContent=summary.completed;
 
-document.getElementById("approved").innerHTML=loans.filter(x=>x.status==="Approved").length;
+const loans=getData(STORAGE.loans);
 
-document.getElementById("rejected").innerHTML=loans.filter(x=>x.status==="Rejected").length;
+let portfolio=0;
 
-let contributionTotal=0;
+let collections=0;
 
-contributions.forEach(c=>{
+loans.forEach(loan=>{
 
-contributionTotal+=Number(c.amount);
+portfolio+=Number(loan.amount||0);
 
-});
-
-document.getElementById("contributions").innerHTML=contributionTotal.toFixed(2);
-
-let referralTotal=0;
-
-referrals.forEach(r=>{
-
-referralTotal+=Number(r.amount);
+collections+=Number(loan.payment||0);
 
 });
 
-document.getElementById("referrals").innerHTML=referralTotal.toFixed(2);
+document.getElementById("portfolio").textContent="₱"+portfolio.toFixed(2);
+
+document.getElementById("collections").textContent="₱"+collections.toFixed(2);
+
+document.getElementById("balance").textContent="₱"+(portfolio-collections).toFixed(2);
 
 </script>
 
