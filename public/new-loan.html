@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Non-Member Loan Application</title>
+
+<title>New Loan Application</title>
 
 <link rel="stylesheet" href="../css/style.css">
 
@@ -13,53 +14,55 @@
 
 <header>
 
-<h1>🏦 OAS Management System</h1>
+<h1>💰 New Loan Application</h1>
 
-<nav>
-<a href="../index.html">Home</a>
-<a href="about.html">About</a>
-<a href="contact.html">Contact</a>
-<a href="become-member.html">Become a Member</a>
-<a href="new-loan.html">New Loan</a>
-<a href="repeat-loan.html">Repeat Loan</a>
-<a href="loan-status.html">Loan Status</a>
-</nav>
+<p>For Non-Member Applicants</p>
 
 </header>
 
-<main>
+<main class="container">
 
-<h2>Non-Member New Loan Application</h2>
+<form id="loanForm">
 
-<p>
-Apply for your first OAS loan even if you are not yet an OAS member.
-</p>
+<label>Full Name</label>
+<input type="text" placeholder="Enter Full Name" required>
 
-<h3>Requirements</h3>
+<label>Mobile Number</label>
+<input type="tel" placeholder="09XXXXXXXXX" required>
 
-<ul>
-<li>Valid Government ID</li>
-<li>Selfie Holding ID</li>
-<li>Complete Address</li>
-<li>Mobile Number</li>
-<li>Proof of Income (if required)</li>
-</ul>
+<label>Complete Address</label>
+<textarea placeholder="Complete Address" required></textarea>
 
-<p>
+<label>Loan Amount</label>
+<input type="number" placeholder="Amount" required>
 
-<a href="../loan/application.html">
-Proceed to Loan Application
-</a>
+<label>Loan Purpose</label>
+<textarea placeholder="Purpose of Loan" required></textarea>
 
-</p>
+<label>Valid Government ID</label>
+<input type="text" placeholder="National ID / Driver's License / Passport" required>
+
+<br><br>
+
+<button type="submit">Submit Loan Application</button>
+
+</form>
 
 </main>
 
-<footer>
+<script>
 
-<p>© 2026 OAS Management System</p>
+document.getElementById("loanForm").addEventListener("submit",function(e){
 
-</footer>
+e.preventDefault();
+
+alert("Loan Application Submitted Successfully!");
+
+this.reset();
+
+});
+
+</script>
 
 </body>
 </html>
