@@ -14,7 +14,19 @@
 
 <header>
 
-<h1>💰 Loan Management</h1>
+<h1>💰 LOAN MANAGEMENT</h1>
+
+<nav>
+
+<a href="dashboard.html">Dashboard</a>
+<a href="members.html">Members</a>
+<a href="borrowers.html">Borrowers</a>
+<a href="loans.html">Loans</a>
+<a href="releases.html">Releases</a>
+<a href="collections.html">Collections</a>
+<a href="reports.html">Reports</a>
+
+</nav>
 
 </header>
 
@@ -22,18 +34,14 @@
 
 <h2>Loan Applications</h2>
 
-<table border="1" width="100%" id="loanTable">
+<table id="loanTable">
 
 <tr>
 
 <th>Reference</th>
-
 <th>Borrower</th>
-
 <th>Amount</th>
-
 <th>Status</th>
-
 <th>Action</th>
 
 </tr>
@@ -56,20 +64,22 @@ let loans=JSON.parse(localStorage.getItem("oas_loans"))||[];
 
 const table=document.getElementById("loanTable");
 
-function loadLoans(){
+function save(){
+
+localStorage.setItem("oas_loans",JSON.stringify(loans));
+
+}
+
+function load(){
 
 table.innerHTML=`
 
 <tr>
 
 <th>Reference</th>
-
 <th>Borrower</th>
-
 <th>Amount</th>
-
 <th>Status</th>
-
 <th>Action</th>
 
 </tr>
@@ -106,7 +116,7 @@ table.innerHTML+=`
 
 <td>${loan.fullName}</td>
 
-<td>₱${loan.amount}</td>
+<td>₱${Number(loan.amount).toFixed(2)}</td>
 
 <td>${loan.status}</td>
 
@@ -138,9 +148,9 @@ function approve(index){
 
 loans[index].status="Approved";
 
-localStorage.setItem("oas_loans",JSON.stringify(loans));
+save();
 
-loadLoans();
+load();
 
 }
 
@@ -148,16 +158,15 @@ function reject(index){
 
 loans[index].status="Rejected";
 
-localStorage.setItem("oas_loans",JSON.stringify(loans));
+save();
 
-loadLoans();
+load();
 
 }
 
-loadLoans();
+load();
 
 </script>
 
 </body>
-
 </html>
