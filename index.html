@@ -1,72 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>OAS Management System</title>
 
-<link rel="stylesheet" href="css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
+<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-<header>
+<header class="header">
 
-<h1>🏦 OAS MANAGEMENT SYSTEM</h1>
+<div class="container nav-container">
 
-<p>Open Amount Sinking Fund</p>
+<div class="logo">
+
+<div class="logo-icon">OAS</div>
+
+<div>
+
+<h2>OAS Management System</h2>
+
+<span>Open Amount Sinking Fund</span>
+
+</div>
+
+</div>
 
 <nav>
 
-<a href="index.html">Home</a>
+<a class="active" href="index.html">Home</a>
 
 <a href="public/about.html">About</a>
 
 <a href="public/contact.html">Contact</a>
 
-<a href="public/become-member.html">Become a Member</a>
+<a href="public/become-member.html">Membership</a>
 
-<a href="public/new-loan.html">New Loan</a>
+<a href="public/new-loan.html">Loans</a>
 
-<a href="public/repeat-loan.html">Repeat Loan</a>
+<a href="member/login.html" class="login-btn">
 
-<a href="public/loan-status.html">Loan Status</a>
+Login
 
-<a href="member/login.html">Member</a>
-
-<a href="admin/login.html">Admin</a>
+</a>
 
 </nav>
+
+</div>
 
 </header>
 
 <section class="hero">
 
-<h1>WELCOME TO OAS</h1>
+<div class="container hero-grid">
+
+<div class="hero-left">
+
+<span class="badge">
+
+Trusted Financial Community
+
+</span>
+
+<h1>
+
+Grow Together with
+
+<span>Open Amount Sinking Fund</span>
+
+</h1>
 
 <p>
 
-One Platform for Membership,
-Loan Processing,
-Collections,
-Contribution Monitoring,
-Referral Incentives,
-and Reports.
+Helping members through disciplined saving,
+responsible lending,
+and transparent financial management.
 
 </p>
 
 <div class="hero-buttons">
 
-<a href="member/register.html" class="btn">
+<a href="public/become-member.html" class="btn">
 
 Become a Member
 
 </a>
 
-<a href="public/new-loan.html" class="btn secondary">
+<a href="public/new-loan.html" class="btn-outline">
 
 Apply Loan
 
@@ -74,115 +101,479 @@ Apply Loan
 
 </div>
 
+<div class="hero-features">
+
+<div>
+
+<strong>✔ Secure</strong>
+
+<small>Protected Member Records</small>
+
+</div>
+
+<div>
+
+<strong>✔ Transparent</strong>
+
+<small>Clear Loan Process</small>
+
+</div>
+
+<div>
+
+<strong>✔ Digital</strong>
+
+<small>Anywhere Access</small>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="hero-right">
+
+<div class="summary-card">
+
+<h3>OAS Overview</h3>
+
+<div class="summary-grid">
+
+<div>
+
+<h2>28</h2>
+
+<p>Members</p>
+
+</div>
+
+<div>
+
+<h2>3</h2>
+
+<p>Loan Types</p>
+
+</div>
+
+<div>
+
+<h2>₱20</h2>
+
+<p>Weekly Minimum</p>
+
+</div>
+
+<div>
+
+<h2>100%</h2>
+
+<p>Responsive</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
-<section class="features">
+<section class="stats">
 
-<div class="card">
+<div class="container stats-grid">
 
-<h2>👥 MEMBERSHIP</h2>
+<div class="stat-card">
+
+<h2>28</h2>
+
+<p>Active Members</p>
+
+</div>
+
+<div class="stat-card">
+
+<h2>150+</h2>
+
+<p>Loans Processed</p>
+
+</div>
+
+<div class="stat-card">
+
+<h2>₱20</h2>
+
+<p>Weekly Contribution</p>
+
+</div>
+
+<div class="stat-card">
+
+<h2>24/7</h2>
+
+<p>Online Access</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="container">
+
+<h2 class="section-title">
+
+Loan Products
+
+</h2>
+
+<div class="cards">        <article class="card">
+
+            <div class="card-icon">💰</div>
+
+            <h3>Microloan</h3>
+
+            <p>
+                Quick financial assistance for immediate needs.
+            </p>
+
+            <ul>
+                <li>₱1,000 - ₱2,000</li>
+                <li>7 Days</li>
+                <li>10% Interest</li>
+            </ul>
+
+            <a href="public/new-loan.html" class="btn">
+                Apply Now
+            </a>
+
+        </article>
+
+        <article class="card featured">
+
+            <span class="popular">
+                MOST POPULAR
+            </span>
+
+            <div class="card-icon">🏦</div>
+
+            <h3>Standard Loan</h3>
+
+            <p>
+                Ideal for members needing a higher loan amount.
+            </p>
+
+            <ul>
+                <li>₱3,000 - ₱4,000</li>
+                <li>2 Weeks</li>
+                <li>15% Interest</li>
+            </ul>
+
+            <a href="public/new-loan.html" class="btn">
+                Apply Now
+            </a>
+
+        </article>
+
+        <article class="card">
+
+            <div class="card-icon">📈</div>
+
+            <h3>Extended Loan</h3>
+
+            <p>
+                Flexible financing with weekly repayments.
+            </p>
+
+            <ul>
+                <li>₱5,000 - ₱10,000</li>
+                <li>4 Weeks</li>
+                <li>15% Interest</li>
+            </ul>
+
+            <a href="public/new-loan.html" class="btn">
+                Apply Now
+            </a>
+
+        </article>
+
+    </div>
+
+</div>
+
+</section>
+
+<section class="how-it-works">
+
+<div class="container">
+
+<h2 class="section-title">
+
+How It Works
+
+</h2>
+
+<div class="steps">
+
+<div class="step">
+
+<div class="step-number">
+
+1
+
+</div>
+
+<h3>
+
+Register
+
+</h3>
 
 <p>
 
-Register and become an official OAS member.
+Create your OAS Member Account.
 
 </p>
 
-<a href="member/register.html" class="btn">
+</div>
 
-OPEN
+<div class="step">
+
+<div class="step-number">
+
+2
+
+</div>
+
+<h3>
+
+Submit Requirements
+
+</h3>
+
+<p>
+
+Upload your required documents.
+
+</p>
+
+</div>
+
+<div class="step">
+
+<div class="step-number">
+
+3
+
+</div>
+
+<h3>
+
+Approval
+
+</h3>
+
+<p>
+
+Application review and verification.
+
+</p>
+
+</div>
+
+<div class="step">
+
+<div class="step-number">
+
+4
+
+</div>
+
+<h3>
+
+Receive Funds
+
+</h3>
+
+<p>
+
+Loan proceeds released after approval.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="benefits">
+
+<div class="container">
+
+<h2 class="section-title">
+
+Why Choose OAS?
+
+</h2>
+
+<div class="benefit-grid">
+
+<div class="benefit">
+
+✅
+
+<h3>
+
+Fast Processing
+
+</h3>
+
+</div>
+
+<div class="benefit">
+
+🔒
+
+<h3>
+
+Secure Records
+
+</h3>
+
+</div>
+
+<div class="benefit">
+
+📱
+
+<h3>
+
+100% Digital
+
+</h3>
+
+</div>
+
+<div class="benefit">
+
+🤝
+
+<h3>
+
+Community Based
+
+</h3>
+
+</div>
+
+<div class="benefit">
+
+📊
+
+<h3>
+
+Transparent System
+
+</h3>
+
+</div>
+
+</div>
+
+</div>
+
+</section><section class="faq">
+
+<div class="container">
+
+<h2 class="section-title">
+
+Frequently Asked Questions
+
+</h2>
+
+<div class="faq-item">
+
+<h3>Who can become an OAS Member?</h3>
+
+<p>
+Anyone who meets the membership requirements and agrees to the OAS policies.
+</p>
+
+</div>
+
+<div class="faq-item">
+
+<h3>Can I apply online?</h3>
+
+<p>
+Yes. Membership and loan applications can be submitted through the OAS Management System.
+</p>
+
+</div>
+
+<div class="faq-item">
+
+<h3>How do I check my application?</h3>
+
+<p>
+Use the Loan Status page to monitor your application progress.
+</p>
+
+</div>
+
+<div class="faq-item">
+
+<h3>How do I contact OAS?</h3>
+
+<p>
+Visit the Contact page for official communication channels.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="cta">
+
+<div class="container">
+
+<h2>
+
+Ready to Join OAS?
+
+</h2>
+
+<p>
+
+Start your financial journey today.
+
+</p>
+
+<div class="hero-buttons">
+
+<a href="public/become-member.html" class="btn">
+
+Become a Member
+
+</a>
+
+<a href="public/new-loan.html" class="btn-outline">
+
+Apply Loan
 
 </a>
 
 </div>
-
-<div class="card">
-
-<h2>💰 NEW LOAN</h2>
-
-<p>
-
-Apply for a new non-member loan.
-
-</p>
-
-<a href="public/new-loan.html" class="btn">
-
-OPEN
-
-</a>
-
-</div>
-
-<div class="card">
-
-<h2>🔄 REPEAT LOAN</h2>
-
-<p>
-
-Apply for another loan.
-
-</p>
-
-<a href="public/repeat-loan.html" class="btn">
-
-OPEN
-
-</a>
-
-</div>
-
-<div class="card">
-
-<h2>📋 LOAN STATUS</h2>
-
-<p>
-
-Track your application.
-
-</p>
-
-<a href="public/loan-status.html" class="btn">
-
-OPEN
-
-</a>
-
-</div>
-
-<div class="card">
-
-<h2>👤 MEMBER LOGIN</h2>
-
-<p>
-
-Access your member account.
-
-</p>
-
-<a href="member/login.html" class="btn">
-
-LOGIN
-
-</a>
-
-</div>
-
-<div class="card">
-
-<h2>🛡 ADMIN LOGIN</h2>
-
-<p>
-
-Administrator access.
-
-</p>
-
-<a href="admin/login.html" class="btn">
-
-LOGIN
-
-</a>
 
 </div>
 
@@ -190,11 +581,97 @@ LOGIN
 
 <footer>
 
+<div class="container footer-grid">
+
+<div>
+
+<h3>
+
+OAS Management System
+
+</h3>
+
 <p>
 
-© 2026 OAS Management System
+Open Amount Sinking Fund
+
+Helping Members Build a Better Financial Future.
 
 </p>
+
+</div>
+
+<div>
+
+<h4>
+
+Quick Links
+
+</h4>
+
+<ul>
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="public/about.html">About</a></li>
+
+<li><a href="public/contact.html">Contact</a></li>
+
+<li><a href="public/become-member.html">Membership</a></li>
+
+</ul>
+
+</div>
+
+<div>
+
+<h4>
+
+Loan Services
+
+</h4>
+
+<ul>
+
+<li><a href="public/new-loan.html">New Loan</a></li>
+
+<li><a href="public/repeat-loan.html">Repeat Loan</a></li>
+
+<li><a href="public/loan-status.html">Loan Status</a></li>
+
+</ul>
+
+</div>
+
+<div>
+
+<h4>
+
+Portal
+
+</h4>
+
+<ul>
+
+<li><a href="member/login.html">Member Login</a></li>
+
+<li><a href="admin/login.html">Admin Login</a></li>
+
+</ul>
+
+</div>
+
+</div>
+
+<div class="copyright">
+
+<p>
+
+© 2026 OAS Management System • All Rights Reserved
+
+</p>
+
+</div>
 
 </footer>
 
