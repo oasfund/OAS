@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Referral Incentives</title>
+<title>My Referral Incentives</title>
 
 <link rel="stylesheet" href="../css/style.css">
 
@@ -14,15 +15,27 @@
 
 <header>
 
-<h1>🎁 Referral Incentives</h1>
+<h1>🎁 MY REFERRAL INCENTIVES</h1>
+
+<p>OAS Management System</p>
+
+<nav>
+
+<a href="dashboard.html">Dashboard</a>
+<a href="profile.html">Profile</a>
+<a href="my-loans.html">My Loans</a>
+<a href="contributions.html">Contributions</a>
+<a href="referrals.html">Referrals</a>
+
+</nav>
 
 </header>
 
 <main class="container">
 
-<h2>My Referral Incentives</h2>
+<h2>Referral Incentive History</h2>
 
-<table border="1" width="100%">
+<table id="referralTable">
 
 <tr>
 
@@ -36,40 +49,87 @@
 
 </tr>
 
-<tr>
-
-<td>No Records</td>
-
-<td>-</td>
-
-<td>₱0.00</td>
-
-<td>-</td>
-
-</tr>
-
 </table>
 
 <br>
 
-<h3>Total Incentives</h3>
+<div class="card">
 
-<p><strong>₱0.00</strong></p>
+<h3>Total Referral Incentives</h3>
 
-<br>
+<h1 id="total">₱0.00</h1>
 
-<a href="dashboard.html">
-
-<button>
-
-Back to Dashboard
-
-</button>
-
-</a>
+</div>
 
 </main>
 
-</body>
+<script src="../js/app.js"></script>
 
+<script>
+
+const member=JSON.parse(localStorage.getItem(STORAGE.currentMember));
+
+if(!member){
+
+window.location="login.html";
+
+}
+
+const referrals=getData(STORAGE.referrals).filter(
+
+r=>r.referrer===member.fullName
+
+);
+
+const table=document.getElementById("referralTable");
+
+let total=0;
+
+if(referrals.length===0){
+
+table.innerHTML+=`
+
+<tr>
+
+<td colspan="4" align="center">
+
+No Referral Incentive Records
+
+</td>
+
+</tr>
+
+`;
+
+}else{
+
+referrals.forEach(r=>{
+
+total+=Number(r.amount);
+
+table.innerHTML+=`
+
+<tr>
+
+<td>${r.borrower}</td>
+
+<td>${r.loanType}</td>
+
+<td>₱${Number(r.amount).toFixed(2)}</td>
+
+<td>Paid</td>
+
+</tr>
+
+`;
+
+});
+
+}
+
+document.getElementById("total").textContent="₱"+total.toFixed(2);
+
+</script>
+
+</body>
 </html>
