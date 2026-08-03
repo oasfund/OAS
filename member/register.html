@@ -1,114 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<script src="../js/app.js"></script>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+document.querySelector("form").addEventListener("submit", function(e){
 
-<title>Member Registration</title>
+e.preventDefault();
 
-<link rel="stylesheet" href="../css/style.css">
+const member = {
 
-</head>
+fullName: document.querySelector('input[placeholder="Full Name"]').value,
 
-<body>
+birthDate: document.querySelector('input[type="date"]').value,
 
-<header>
+mobile: document.querySelector('input[placeholder="09XXXXXXXXX"]').value,
 
-<h1>🏦 OAS Management System</h1>
+email: document.querySelector('input[type="email"]').value,
 
-<nav>
+address: document.querySelector("textarea").value,
 
-<a href="../index.html">Home</a>
+governmentId: document.querySelector('input[placeholder="Government ID"]').value,
 
-<a href="../public/about.html">About</a>
+username: document.querySelector('input[placeholder="Username"]').value,
 
-<a href="../public/contact.html">Contact</a>
+password: document.querySelector('input[type="password"]').value
 
-<a href="login.html">Member Login</a>
+};
 
-</nav>
+const result = OAS.register(member);
 
-</header>
+alert("Registration Successful!\n\nMember ID: " + result.memberId);
 
-<main>
+this.reset();
 
-<h2>Member Registration</h2>
-
-<form>
-
-<label>Full Name</label>
-<input type="text" placeholder="Full Name">
-
-<br><br>
-
-<label>Birth Date</label>
-<input type="date">
-
-<br><br>
-
-<label>Mobile Number</label>
-<input type="text" placeholder="09XXXXXXXXX">
-
-<br><br>
-
-<label>Email Address</label>
-<input type="email" placeholder="example@email.com">
-
-<br><br>
-
-<label>Complete Address</label>
-<textarea placeholder="Complete Address"></textarea>
-
-<br><br>
-
-<label>Government ID Number</label>
-<input type="text" placeholder="Government ID">
-
-<br><br>
-
-<label>Username</label>
-<input type="text" placeholder="Username">
-
-<br><br>
-
-<label>Password</label>
-<input type="password" placeholder="Password">
-
-<br><br>
-
-<button type="submit">
-
-Register
-
-</button>
-
-</form>
-
-<p>
-
-Already have an account?
-
-<a href="login.html">
-
-Login Here
-
-</a>
-
-</p>
-
-</main>
-
-<footer>
-
-<p>
-
-© 2026 OAS Management System
-
-</p>
-
-</footer>
-
-</body>
-
-</html>
+});
+</script>
