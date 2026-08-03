@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>OAS Admin Dashboard</title>
+<title>OAS Executive Dashboard</title>
 
 <link rel="stylesheet" href="../css/style.css">
 
@@ -17,13 +16,26 @@
 
 <h1>🏦 OAS MANAGEMENT SYSTEM</h1>
 
-<p>Administrator Dashboard</p>
+<p>Executive Dashboard</p>
+
+<nav>
+
+<a href="dashboard.html">Dashboard</a>
+<a href="members.html">Members</a>
+<a href="borrowers.html">Borrowers</a>
+<a href="loans.html">Loans</a>
+<a href="releases.html">Releases</a>
+<a href="collections.html">Collections</a>
+<a href="reports.html">Reports</a>
+<a href="settings.html">Settings</a>
+
+</nav>
 
 </header>
 
 <main class="container">
 
-<h2>Executive Dashboard</h2>
+<div class="features">
 
 <div class="card">
 
@@ -33,8 +45,6 @@
 
 </div>
 
-<br>
-
 <div class="card">
 
 <h3>Total Borrowers</h3>
@@ -43,37 +53,13 @@
 
 </div>
 
-<br>
-
 <div class="card">
 
-<h3>Total Loan Applications</h3>
+<h3>Loan Applications</h3>
 
 <h1 id="applications">0</h1>
 
 </div>
-
-<br>
-
-<div class="card">
-
-<h3>Pending Loans</h3>
-
-<h1 id="pending">0</h1>
-
-</div>
-
-<br>
-
-<div class="card">
-
-<h3>Approved Loans</h3>
-
-<h1 id="approved">0</h1>
-
-</div>
-
-<br>
 
 <div class="card">
 
@@ -83,8 +69,6 @@
 
 </div>
 
-<br>
-
 <div class="card">
 
 <h3>Completed Loans</h3>
@@ -93,33 +77,15 @@
 
 </div>
 
-<br>
+<div class="card">
 
-<h2>Management Modules</h2>
+<h3>Total Collections</h3>
 
-<ul>
+<h1 id="collections">₱0.00</h1>
 
-<li><a href="members.html">👥 Member Management</a></li>
+</div>
 
-<li><a href="borrowers.html">👤 Borrowers Masterlist</a></li>
-
-<li><a href="loans.html">💰 Loan Management</a></li>
-
-<li><a href="releases.html">💵 Loan Releases</a></li>
-
-<li><a href="collections.html">💳 Collections</a></li>
-
-<li><a href="completed-loans.html">✅ Completed Loans</a></li>
-
-<li><a href="contributions.html">📅 Contributions</a></li>
-
-<li><a href="referrals.html">🎁 Referral Incentives</a></li>
-
-<li><a href="reports.html">📊 Reports</a></li>
-
-<li><a href="settings.html">⚙ Settings</a></li>
-
-</ul>
+</div>
 
 </main>
 
@@ -135,16 +101,21 @@ document.getElementById("borrowers").innerHTML=loans.length;
 
 document.getElementById("applications").innerHTML=loans.length;
 
-document.getElementById("pending").innerHTML=loans.filter(x=>x.status==="Pending").length;
-
-document.getElementById("approved").innerHTML=loans.filter(x=>x.status==="Approved").length;
-
 document.getElementById("released").innerHTML=loans.filter(x=>x.status==="Released").length;
 
 document.getElementById("completed").innerHTML=loans.filter(x=>x.status==="Completed").length;
 
+let total=0;
+
+loans.forEach(x=>{
+
+total+=Number(x.payment||0);
+
+});
+
+document.getElementById("collections").innerHTML="₱"+total.toFixed(2);
+
 </script>
 
 </body>
-
 </html>
