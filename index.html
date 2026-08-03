@@ -1,1332 +1,423 @@
 <!-- ===========================================================
 FILE: index.html
 PROJECT: OAS MANAGEMENT SYSTEM V2
-PART: 1 / 6
-STATUS: FOUNDATION
+STATUS: FOUNDATION - FIXED & OPTIMIZED
 =========================================================== -->
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OAS Management System V2</title>
-
-    <meta name="description"
-        content="Open Amount Sinking Fund Management System">
-
-    <meta name="theme-color"
-        content="#0f172a">
+    <meta name="description" content="Open Amount Sinking Fund Management System">
+    <meta name="theme-color" content="#0f172a">
 
     <!-- Fonts -->
-    <link rel="preconnect"
-        href="https://fonts.googleapis.com">
-
-    <link rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Icons -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
 
     <!-- Styles -->
-    <link rel="stylesheet"
-        href="assets/css/style.css">
-
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
 
     <!-- =========================
          APP LOADER
     ========================== -->
-
     <div id="appLoader">
-
         <div class="loader-card">
-
             <div class="loader-logo">
-
                 <i class="fa-solid fa-coins"></i>
-
             </div>
-
-            <h1>
-                OAS MANAGEMENT SYSTEM
-            </h1>
-
-            <p>
-                Version 2
-            </p>
-
+            <h1>OAS MANAGEMENT SYSTEM</h1>
+            <p>Version 2</p>
             <div class="loader-bar">
-
                 <div class="loader-progress"></div>
-
             </div>
-
         </div>
-
     </div>
 
     <!-- =========================
          APPLICATION
     ========================== -->
-
     <div id="app">
 
         <!-- =========================
              SIDEBAR
         ========================== -->
-
         <aside id="sidebar">
-
             <div class="brand">
-
                 <div class="brand-icon">
-
                     <i class="fa-solid fa-landmark"></i>
-
                 </div>
-
                 <div class="brand-text">
-
                     <h2>OAS V2</h2>
-
                     <small>Management System</small>
-
                 </div>
-
             </div>
-
             <nav>
-
                 <ul>
-
-                    <li class="active">
-                        <a href="#">
-                            <i class="fa-solid fa-chart-line"></i>
-                            <span>Dashboard</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#">
-                            <i class="fa-solid fa-users"></i>
-                            <span>Members</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#">
-                            <i class="fa-solid fa-money-bill-transfer"></i>
-                            <span>Contributions</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#">
-                            <i class="fa-solid fa-hand-holding-dollar"></i>
-                            <span>Loans</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#">
-                            <i class="fa-solid fa-calendar-days"></i>
-                            <span>Due Dates</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#">
-                            <i class="fa-solid fa-file-signature"></i>
-                            <span>Applications</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#">
-                            <i class="fa-solid fa-chart-pie"></i>
-                            <span>Reports</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#">
-                            <i class="fa-solid fa-gear"></i>
-                            <span>Settings</span>
-                        </a>
-                    </li>
-
+                    <li class="active"><a href="#"><i class="fa-solid fa-chart-line"></i><span>Dashboard</span></a></li>
+                    <li><a href="#"><i class="fa-solid fa-users"></i><span>Members</span></a></li>
+                    <li><a href="#"><i class="fa-solid fa-money-bill-transfer"></i><span>Contributions</span></a></li>
+                    <li><a href="#"><i class="fa-solid fa-hand-holding-dollar"></i><span>Loans</span></a></li>
+                    <li><a href="#"><i class="fa-solid fa-calendar-days"></i><span>Due Dates</span></a></li>
+                    <li><a href="#"><i class="fa-solid fa-file-signature"></i><span>Applications</span></a></li>
+                    <li><a href="#"><i class="fa-solid fa-chart-pie"></i><span>Reports</span></a></li>
+                    <li><a href="#"><i class="fa-solid fa-gear"></i><span>Settings</span></a></li>
                 </ul>
-
             </nav>
-
         </aside>
 
         <!-- =========================
              MAIN
         ========================== -->
-
         <main id="main">
 
             <!-- HEADER -->
-
             <header id="topbar">
-
                 <div class="left">
-
-                    <button id="menuButton">
-
-                        <i class="fa-solid fa-bars"></i>
-
-                    </button>
-
-                    <h1>
-
-                        Executive Dashboard
-
-                    </h1>
-
+                    <button id="menuButton"><i class="fa-solid fa-bars"></i></button>
+                    <h1>Executive Dashboard</h1>
                 </div>
-
                 <div class="right">
-
-                    <button>
-
-                        <i class="fa-regular fa-bell"></i>
-
-                    </button>
-
-                    <button>
-
-                        <i class="fa-solid fa-moon"></i>
-
-                    </button>
-
+                    <button><i class="fa-regular fa-bell"></i></button>
+                    <button><i class="fa-solid fa-moon"></i></button>
                     <div class="profile">
-
-                        <div class="avatar">
-
-                            A
-
-                        </div>
-
+                        <div class="avatar">A</div>
                         <div>
-
                             <strong>Administrator</strong>
-
                             <small>System Owner</small>
-
                         </div>
-
                     </div>
-
                 </div>
-
             </header>
 
             <!-- CONTENT -->
-
             <section id="content">
 
                 <!-- KPI CARDS -->
-
                 <section class="dashboard-cards">
-
                     <article class="card">
-
                         <span>Total Members</span>
-
                         <h2 id="totalMembers">0</h2>
-
                     </article>
-
                     <article class="card">
-
                         <span>Total Contributions</span>
-
-                        <h2 id="totalContribution">
-                            ₱0
-                        </h2>
-
+                        <h2 id="totalContribution">₱0</h2>
                     </article>
-
                     <article class="card">
-
                         <span>Active Loans</span>
-
-                        <h2 id="activeLoans">
-                            0
-                        </h2>
-
+                        <h2 id="activeLoans">0</h2>
                     </article>
-
                     <article class="card">
-
                         <span>Fund Balance</span>
-
-                        <h2 id="fundBalance">
-                            ₱0
-                        </h2>
-
+                        <h2 id="fundBalance">₱0</h2>
                     </article>
-
                 </section>
 
-                <!-- ROW -->
-
+                <!-- ROW 1 -->
                 <section class="dashboard-grid">
-
                     <div class="panel">
-
-                        <div class="panel-header">
-
-                            <h3>
-
-                                Weekly Collections
-
-                            </h3>
-
-                        </div>
-
+                        <div class="panel-header"><h3>Weekly Collections</h3></div>
                         <div id="collectionChart"></div>
-
                     </div>
-
                     <div class="panel">
-
-                        <div class="panel-header">
-
-                            <h3>
-
-                                Loan Status
-
-                            </h3>
-
-                        </div>
-
+                        <div class="panel-header"><h3>Loan Status</h3></div>
                         <div id="loanChart"></div>
-
                     </div>
-
                 </section>
 
-                <!-- TABLE -->
-
+                <!-- TABLE: RECENT TRANSACTIONS -->
                 <section class="panel">
-
-                    <div class="panel-header">
-
-                        <h3>
-
-                            Recent Transactions
-
-                        </h3>
-
-                    </div>
-
+                    <div class="panel-header"><h3>Recent Transactions</h3></div>
                     <div class="table-responsive">
-
                         <table>
-
                             <thead>
-
                                 <tr>
-
-                                    <th>Date</th>
-                                    <th>Reference</th>
-                                    <th>Member</th>
-                                    <th>Type</th>
-                                    <th>Amount</th>
-                                    <th>Status</th>
-
+                                    <th>Date</th><th>Reference</th><th>Member</th><th>Type</th><th>Amount</th><th>Status</th>
                                 </tr>
-
                             </thead>
-
-                            <tbody id="recentTransactions">
-
-                            </tbody>
-
+                            <tbody id="recentTransactions"></tbody>
                         </table>
-
                     </div>
-
                 </section>
 
-            </section>
-
-        </main>
-
-    </div>
-
-    <!-- Scripts -->
-
-    <script src="assets/js/app.js"></script>
-
-</body>
-
-</html>            <!-- ==========================================
-                 MEMBER SUMMARY
-            =========================================== -->
-
-            <section class="dashboard-grid">
-
-                <div class="panel">
-
-                    <div class="panel-header">
-
-                        <h3>
-                            Member Overview
-                        </h3>
-
-                        <button class="btn-primary">
-                            <i class="fa-solid fa-user-plus"></i>
-                            Add Member
-                        </button>
-
+                <!-- MEMBER SUMMARY -->
+                <section class="dashboard-grid">
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3>Member Overview</h3>
+                            <button class="btn-primary"><i class="fa-solid fa-user-plus"></i> Add Member</button>
+                        </div>
+                        <div class="member-summary">
+                            <div class="summary-box"><span>Active Members</span><h2 id="activeMembers">0</h2></div>
+                            <div class="summary-box"><span>Inactive Members</span><h2 id="inactiveMembers">0</h2></div>
+                            <div class="summary-box"><span>Borrowers</span><h2 id="borrowers">0</h2></div>
+                            <div class="summary-box"><span>Delinquent</span><h2 id="delinquentMembers">0</h2></div>
+                        </div>
                     </div>
-
-                    <div class="member-summary">
-
-                        <div class="summary-box">
-
-                            <span>Active Members</span>
-
-                            <h2 id="activeMembers">
-                                0
-                            </h2>
-
-                        </div>
-
-                        <div class="summary-box">
-
-                            <span>Inactive Members</span>
-
-                            <h2 id="inactiveMembers">
-                                0
-                            </h2>
-
-                        </div>
-
-                        <div class="summary-box">
-
-                            <span>Borrowers</span>
-
-                            <h2 id="borrowers">
-                                0
-                            </h2>
-
-                        </div>
-
-                        <div class="summary-box">
-
-                            <span>Delinquent</span>
-
-                            <h2 id="delinquentMembers">
-                                0
-                            </h2>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="panel">
-
-                    <div class="panel-header">
-
-                        <h3>
-                            Collection Progress
-                        </h3>
-
-                    </div>
-
-                    <div class="progress-wrapper">
-
-                        <div class="progress-info">
-
-                            <span>
-                                Weekly Target
-                            </span>
-
-                            <strong id="weeklyTarget">
-                                ₱0
-                            </strong>
-
-                        </div>
-
-                        <div class="progress">
-
-                            <div
-                                class="progress-fill"
-                                style="width:0%;">
-
+                    <div class="panel">
+                        <div class="panel-header"><h3>Collection Progress</h3></div>
+                        <div class="progress-wrapper">
+                            <div class="progress-info">
+                                <span>Weekly Target</span>
+                                <strong id="weeklyTarget">₱0</strong>
                             </div>
-
+                            <div class="progress">
+                                <div class="progress-fill" style="width:0%;"></div>
+                            </div>
+                            <div class="progress-footer">
+                                <span id="collectionPercent">0%</span>
+                            </div>
                         </div>
-
-                        <div class="progress-footer">
-
-                            <span id="collectionPercent">
-
-                                0%
-
-                            </span>
-
-                        </div>
-
                     </div>
+                </section>
 
-                </div>
-
-            </section>
-
-            <!-- ==========================================
-                 QUICK ACTIONS
-            =========================================== -->
-
-            <section class="panel">
-
-                <div class="panel-header">
-
-                    <h3>
-
-                        Quick Actions
-
-                    </h3>
-
-                </div>
-
-                <div class="quick-actions">
-
-                    <button>
-
-                        <i class="fa-solid fa-user-plus"></i>
-
-                        New Member
-
-                    </button>
-
-                    <button>
-
-                        <i class="fa-solid fa-wallet"></i>
-
-                        Contribution
-
-                    </button>
-
-                    <button>
-
-                        <i class="fa-solid fa-hand-holding-dollar"></i>
-
-                        New Loan
-
-                    </button>
-
-                    <button>
-
-                        <i class="fa-solid fa-money-check-dollar"></i>
-
-                        Loan Payment
-
-                    </button>
-
-                    <button>
-
-                        <i class="fa-solid fa-rotate"></i>
-
-                        Restructure
-
-                    </button>
-
-                    <button>
-
-                        <i class="fa-solid fa-file-arrow-down"></i>
-
-                        Export
-
-                    </button>
-
-                </div>
-
-            </section>
-
-            <!-- ==========================================
-                 LOAN PORTFOLIO
-            =========================================== -->
-
-            <section class="dashboard-grid">
-
-                <div class="panel">
-
-                    <div class="panel-header">
-
-                        <h3>
-
-                            Loan Portfolio
-
-                        </h3>
-
+                <!-- QUICK ACTIONS -->
+                <section class="panel">
+                    <div class="panel-header"><h3>Quick Actions</h3></div>
+                    <div class="quick-actions">
+                        <button><i class="fa-solid fa-user-plus"></i> New Member</button>
+                        <button><i class="fa-solid fa-wallet"></i> Contribution</button>
+                        <button><i class="fa-solid fa-hand-holding-dollar"></i> New Loan</button>
+                        <button><i class="fa-solid fa-money-check-dollar"></i> Loan Payment</button>
+                        <button><i class="fa-solid fa-rotate"></i> Restructure</button>
+                        <button><i class="fa-solid fa-file-arrow-down"></i> Export</button>
                     </div>
+                </section>
 
-                    <div id="portfolioChart">
-
+                <!-- LOAN PORTFOLIO -->
+                <section class="dashboard-grid">
+                    <div class="panel">
+                        <div class="panel-header"><h3>Loan Portfolio</h3></div>
+                        <div id="portfolioChart"></div>
                     </div>
-
-                </div>
-
-                <div class="panel">
-
-                    <div class="panel-header">
-
-                        <h3>
-
-                            Payment Performance
-
-                        </h3>
-
+                    <div class="panel">
+                        <div class="panel-header"><h3>Payment Performance</h3></div>
+                        <div id="paymentChart"></div>
                     </div>
+                </section>
 
-                    <div id="paymentChart">
-
-                    </div>
-
-                </div>
-
-            </section>
-
-            <!-- ==========================================
-                 RECENT APPLICATIONS
-            =========================================== -->
-
-            <section class="panel">
-
-                <div class="panel-header">
-
-                    <h3>
-
-                        Latest Loan Applications
-
-                    </h3>
-
-                </div>
-
-                <div class="table-responsive">
-
-                    <table>
-
-                        <thead>
-
-                            <tr>
-
-                                <th>Application No.</th>
-                                <th>Borrower</th>
-                                <th>Loan Type</th>
-                                <th>Amount</th>
-                                <th>Status</th>
-                                <th>Action</th>
-
-                            </tr>
-
-                        </thead>
-
-                        <tbody id="latestApplications">
-
-                        </tbody>
-
-                    </table>
-
-                </div>
-
-            </section>            <!-- ==========================================
-                 DUE DATE MONITOR
-            =========================================== -->
-
-            <section class="dashboard-grid">
-
-                <div class="panel">
-
-                    <div class="panel-header">
-
-                        <h3>
-
-                            Upcoming Due Dates
-
-                        </h3>
-
-                    </div>
-
+                <!-- RECENT APPLICATIONS -->
+                <section class="panel">
+                    <div class="panel-header"><h3>Latest Loan Applications</h3></div>
                     <div class="table-responsive">
-
                         <table>
-
                             <thead>
-
                                 <tr>
-
-                                    <th>Due Date</th>
-                                    <th>Member</th>
-                                    <th>Reference</th>
-                                    <th>Amount</th>
-                                    <th>Status</th>
-
+                                    <th>Application No.</th><th>Borrower</th><th>Loan Type</th><th>Amount</th><th>Status</th><th>Action</th>
                                 </tr>
-
                             </thead>
-
-                            <tbody id="upcomingDueDates">
-
-                            </tbody>
-
+                            <tbody id="latestApplications"></tbody>
                         </table>
-
                     </div>
+                </section>
 
-                </div>
-
-                <div class="panel">
-
-                    <div class="panel-header">
-
-                        <h3>
-
-                            Delinquency Summary
-
-                        </h3>
-
-                    </div>
-
-                    <div class="summary-list">
-
-                        <div class="summary-item">
-                            <span>Current</span>
-                            <strong id="currentLoans">0</strong>
+                <!-- DUE DATE MONITOR -->
+                <section class="dashboard-grid">
+                    <div class="panel">
+                        <div class="panel-header"><h3>Upcoming Due Dates</h3></div>
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Due Date</th><th>Member</th><th>Reference</th><th>Amount</th><th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="upcomingDueDates"></tbody>
+                            </table>
                         </div>
-
-                        <div class="summary-item">
-                            <span>Past Due</span>
-                            <strong id="pastDueLoans">0</strong>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-header"><h3>Delinquency Summary</h3></div>
+                        <div class="summary-list">
+                            <div class="summary-item"><span>Current</span><strong id="currentLoans">0</strong></div>
+                            <div class="summary-item"><span>Past Due</span><strong id="pastDueLoans">0</strong></div>
+                            <div class="summary-item"><span>Restructured</span><strong id="restructuredLoans">0</strong></div>
+                            <div class="summary-item"><span>Defaulted</span><strong id="defaultLoans">0</strong></div>
                         </div>
+                    </div>
+                </section>
 
-                        <div class="summary-item">
-                            <span>Restructured</span>
-                            <strong id="restructuredLoans">0</strong>
+                <!-- FINANCIAL SUMMARY -->
+                <section class="dashboard-grid">
+                    <div class="panel">
+                        <div class="panel-header"><h3>Financial Overview</h3></div>
+                        <div class="financial-grid">
+                            <div class="finance-card"><span>Total Released</span><h3 id="releasedLoans">₱0</h3></div>
+                            <div class="finance-card"><span>Total Collected</span><h3 id="collectedLoans">₱0</h3></div>
+                            <div class="finance-card"><span>Total Interest</span><h3 id="interestIncome">₱0</h3></div>
+                            <div class="finance-card"><span>Penalty Income</span><h3 id="penaltyIncome">₱0</h3></div>
                         </div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-header"><h3>Cash Flow</h3></div>
+                        <div id="cashFlowChart"></div>
+                    </div>
+                </section>
 
-                        <div class="summary-item">
-                            <span>Defaulted</span>
-                            <strong id="defaultLoans">0</strong>
+                <!-- ACTIVITY LOG -->
+                <section class="panel">
+                    <div class="panel-header"><h3>Activity Log</h3></div>
+                    <div class="activity-list" id="activityLog"></div>
+                </section>
+
+                <!-- MEMBER RANKINGS -->
+                <section class="dashboard-grid">
+                    <div class="panel">
+                        <div class="panel-header"><h3>Top Contributors</h3></div>
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>#</th><th>Member</th><th>Total Contribution</th><th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="topContributors"></tbody>
+                            </table>
                         </div>
-
                     </div>
-
-                </div>
-
-            </section>
-
-            <!-- ==========================================
-                 FINANCIAL SUMMARY
-            =========================================== -->
-
-            <section class="dashboard-grid">
-
-                <div class="panel">
-
-                    <div class="panel-header">
-
-                        <h3>
-
-                            Financial Overview
-
-                        </h3>
-
-                    </div>
-
-                    <div class="financial-grid">
-
-                        <div class="finance-card">
-                            <span>Total Released</span>
-                            <h3 id="releasedLoans">₱0</h3>
+                    <div class="panel">
+                        <div class="panel-header"><h3>Top Borrowers</h3></div>
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>#</th><th>Member</th><th>Total Loan</th><th>Balance</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="topBorrowers"></tbody>
+                            </table>
                         </div>
+                    </div>
+                </section>
 
-                        <div class="finance-card">
-                            <span>Total Collected</span>
-                            <h3 id="collectedLoans">₱0</h3>
+                <!-- SYSTEM NOTIFICATIONS -->
+                <section class="panel">
+                    <div class="panel-header"><h3>Notifications</h3></div>
+                    <div id="notificationList" class="notification-list"></div>
+                </section>
+
+                <!-- EXECUTIVE ANALYTICS -->
+                <section class="dashboard-grid">
+                    <div class="panel">
+                        <div class="panel-header"><h3>Monthly Income</h3></div>
+                        <div id="incomeChart"></div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-header"><h3>Monthly Expenses</h3></div>
+                        <div id="expenseChart"></div>
+                    </div>
+                </section>
+
+                <!-- EXECUTIVE SUMMARY -->
+                <section class="panel">
+                    <div class="panel-header"><h3>Executive Summary</h3></div>
+                    <div class="executive-summary">
+                        <div class="summary-card"><label>Total Fund Assets</label><h2 id="totalAssets">₱0</h2></div>
+                        <div class="summary-card"><label>Total Outstanding Balance</label><h2 id="totalOutstanding">₱0</h2></div>
+                        <div class="summary-card"><label>Projected Profit</label><h2 id="projectedProfit">₱0</h2></div>
+                        <div class="summary-card"><label>Net Fund Position</label><h2 id="netFundPosition">₱0</h2></div>
+                    </div>
+                </section>
+
+                <!-- SYSTEM STATUS -->
+                <section class="dashboard-grid">
+                    <div class="panel">
+                        <div class="panel-header"><h3>System Status</h3></div>
+                        <div class="status-grid">
+                            <div class="status-card"><span>Database</span><strong id="dbStatus">Connected</strong></div>
+                            <div class="status-card"><span>Authentication</span><strong id="authStatus">Active</strong></div>
+                            <div class="status-card"><span>Storage</span><strong id="storageStatus">Online</strong></div>
+                            <div class="status-card"><span>Backup</span><strong id="backupStatus">Ready</strong></div>
                         </div>
-
-                        <div class="finance-card">
-                            <span>Total Interest</span>
-                            <h3 id="interestIncome">₱0</h3>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-header"><h3>Live Statistics</h3></div>
+                        <div class="statistics-grid">
+                            <div class="stat-box"><span>Today's Collections</span><h3 id="todayCollection">₱0</h3></div>
+                            <div class="stat-box"><span>Today's Loans</span><h3 id="todayLoans">₱0</h3></div>
+                            <div class="stat-box"><span>Today's Payments</span><h3 id="todayPayments">₱0</h3></div>
+                            <div class="stat-box"><span>Pending Approval</span><h3 id="pendingApproval">0</h3></div>
                         </div>
-
-                        <div class="finance-card">
-                            <span>Penalty Income</span>
-                            <h3 id="penaltyIncome">₱0</h3>
-                        </div>
-
                     </div>
+                </section>
 
-                </div>
+            </section> <!-- END OF CONTENT -->
 
-                <div class="panel">
-
-                    <div class="panel-header">
-
-                        <h3>
-
-                            Cash Flow
-
-                        </h3>
-
-                    </div>
-
-                    <div id="cashFlowChart">
-
-                    </div>
-
-                </div>
-
-            </section>
-
-            <!-- ==========================================
-                 ACTIVITY LOG
-            =========================================== -->
-
-            <section class="panel">
-
-                <div class="panel-header">
-
-                    <h3>
-
-                        Activity Log
-
-                    </h3>
-
-                </div>
-
-                <div class="activity-list" id="activityLog">
-
-                </div>
-
-            </section>            <!-- ==========================================
-                 MEMBER RANKINGS
-            =========================================== -->
-
-            <section class="dashboard-grid">
-
-                <div class="panel">
-
-                    <div class="panel-header">
-
-                        <h3>
-
-                            Top Contributors
-
-                        </h3>
-
-                    </div>
-
-                    <div class="table-responsive">
-
-                        <table>
-
-                            <thead>
-
-                                <tr>
-
-                                    <th>#</th>
-                                    <th>Member</th>
-                                    <th>Total Contribution</th>
-                                    <th>Status</th>
-
-                                </tr>
-
-                            </thead>
-
-                            <tbody id="topContributors">
-
-                            </tbody>
-
-                        </table>
-
-                    </div>
-
-                </div>
-
-                <div class="panel">
-
-                    <div class="panel-header">
-
-                        <h3>
-
-                            Top Borrowers
-
-                        </h3>
-
-                    </div>
-
-                    <div class="table-responsive">
-
-                        <table>
-
-                            <thead>
-
-                                <tr>
-
-                                    <th>#</th>
-                                    <th>Member</th>
-                                    <th>Total Loan</th>
-                                    <th>Balance</th>
-
-                                </tr>
-
-                            </thead>
-
-                            <tbody id="topBorrowers">
-
-                            </tbody>
-
-                        </table>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-            <!-- ==========================================
-                 SYSTEM NOTIFICATIONS
-            =========================================== -->
-
-            <section class="panel">
-
-                <div class="panel-header">
-
-                    <h3>
-
-                        Notifications
-
-                    </h3>
-
-                </div>
-
-                <div id="notificationList"
-                     class="notification-list">
-
-                </div>
-
-            </section>
-
-            <!-- ==========================================
-                 EXECUTIVE ANALYTICS
-            =========================================== -->
-
-            <section class="dashboard-grid">
-
-                <div class="panel">
-
-                    <div class="panel-header">
-
-                        <h3>
-
-                            Monthly Income
-
-                        </h3>
-
-                    </div>
-
-                    <div id="incomeChart">
-
-                    </div>
-
-                </div>
-
-                <div class="panel">
-
-                    <div class="panel-header">
-
-                        <h3>
-
-                            Monthly Expenses
-
-                        </h3>
-
-                    </div>
-
-                    <div id="expenseChart">
-
-                    </div>
-
-                </div>
-
-            </section>
-
-            <!-- ==========================================
-                 EXECUTIVE SUMMARY
-            =========================================== -->
-
-            <section class="panel">
-
-                <div class="panel-header">
-
-                    <h3>
-
-                        Executive Summary
-
-                    </h3>
-
-                </div>
-
-                <div class="executive-summary">
-
-                    <div class="summary-card">
-
-                        <label>Total Fund Assets</label>
-
-                        <h2 id="totalAssets">
-                            ₱0
-                        </h2>
-
-                    </div>
-
-                    <div class="summary-card">
-
-                        <label>Total Outstanding Balance</label>
-
-                        <h2 id="totalOutstanding">
-                            ₱0
-                        </h2>
-
-                    </div>
-
-                    <div class="summary-card">
-
-                        <label>Projected Profit</label>
-
-                        <h2 id="projectedProfit">
-                            ₱0
-                        </h2>
-
-                    </div>
-
-                    <div class="summary-card">
-
-                        <label>Net Fund Position</label>
-
-                        <h2 id="netFundPosition">
-                            ₱0
-                        </h2>
-
-                    </div>
-
-                </div>
-
-            </section>            <!-- ==========================================
-                 SYSTEM STATUS
-            =========================================== -->
-
-            <section class="dashboard-grid">
-
-                <div class="panel">
-
-                    <div class="panel-header">
-
-                        <h3>
-
-                            System Status
-
-                        </h3>
-
-                    </div>
-
-                    <div class="status-grid">
-
-                        <div class="status-card">
-
-                            <span>Database</span>
-
-                            <strong id="dbStatus">
-
-                                Connected
-
-                            </strong>
-
-                        </div>
-
-                        <div class="status-card">
-
-                            <span>Authentication</span>
-
-                            <strong id="authStatus">
-
-                                Active
-
-                            </strong>
-
-                        </div>
-
-                        <div class="status-card">
-
-                            <span>Storage</span>
-
-                            <strong id="storageStatus">
-
-                                Online
-
-                            </strong>
-
-                        </div>
-
-                        <div class="status-card">
-
-                            <span>Backup</span>
-
-                            <strong id="backupStatus">
-
-                                Ready
-
-                            </strong>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="panel">
-
-                    <div class="panel-header">
-
-                        <h3>
-
-                            Live Statistics
-
-                        </h3>
-
-                    </div>
-
-                    <div class="statistics-grid">
-
-                        <div class="stat-box">
-
-                            <span>Today's Collections</span>
-
-                            <h3 id="todayCollection">
-
-                                ₱0
-
-                            </h3>
-
-                        </div>
-
-                        <div class="stat-box">
-
-                            <span>Today's Loans</span>
-
-                            <h3 id="todayLoans">
-
-                                ₱0
-
-                            </h3>
-
-                        </div>
-
-                        <div class="stat-box">
-
-                            <span>Today's Payments</span>
-
-                            <h3 id="todayPayments">
-
-                                ₱0
-
-                            </h3>
-
-                        </div>
-
-                        <div class="stat-box">
-
-                            <span>Pending Approval</span>
-
-                            <h3 id="pendingApproval">
-
-                                0
-
-                            </h3>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-            <!-- ==========================================
-                 FOOTER INFORMATION
-            =========================================== -->
-
+            <!-- FOOTER -->
             <footer id="footer">
-
                 <div class="footer-left">
-
-                    <strong>
-
-                        OAS Management System V2
-
-                    </strong>
-
-                    <small>
-
-                        Open Amount Sinking Fund
-
-                    </small>
-
+                    <strong>OAS Management System V2</strong>
+                    <small>Open Amount Sinking Fund</small>
                 </div>
-
                 <div class="footer-right">
-
-                    <span>
-
-                        Version 2.0
-
-                    </span>
-
-                    <span>
-
-                        © 2026
-
-                    </span>
-
+                    <span>Version 2.0</span>
+                    <span>© 2026</span>
                 </div>
+            </footer>
 
-            </footer>        </main>
-
-    </div>
+        </main> <!-- END OF MAIN -->
+    </div> <!-- END OF APP -->
 
     <!-- ==========================================
-         GLOBAL MODAL
+         MODALS & OVERLAYS
     =========================================== -->
-
+    
+    <!-- GLOBAL MODAL -->
     <div id="globalModal" class="modal hidden">
-
         <div class="modal-overlay"></div>
-
         <div class="modal-container">
-
             <div class="modal-header">
-
-                <h2 id="modalTitle">
-
-                    Modal Title
-
-                </h2>
-
-                <button id="closeModal">
-
-                    <i class="fa-solid fa-xmark"></i>
-
-                </button>
-
+                <h2 id="modalTitle">Modal Title</h2>
+                <button id="closeModal"><i class="fa-solid fa-xmark"></i></button>
             </div>
-
-            <div id="modalBody"
-                 class="modal-body">
-
-            </div>
-
+            <div id="modalBody" class="modal-body"></div>
         </div>
-
     </div>
 
-    <!-- ==========================================
-         TOAST NOTIFICATION
-    =========================================== -->
+    <!-- TOAST NOTIFICATION -->
+    <div id="toastContainer"></div>
 
-    <div id="toastContainer">
-
-    </div>
-
-    <!-- ==========================================
-         LOADING OVERLAY
-    =========================================== -->
-
-    <div id="loadingOverlay"
-         class="hidden">
-
+    <!-- LOADING OVERLAY -->
+    <div id="loadingOverlay" class="hidden">
         <div class="loading-card">
-
             <div class="spinner"></div>
-
-            <p>
-
-                Please wait...
-
-            </p>
-
+            <p>Please wait...</p>
         </div>
-
     </div>
 
-    <!-- ==========================================
-         BACK TO TOP
-    =========================================== -->
-
+    <!-- BACK TO TOP -->
     <button id="backToTop">
-
         <i class="fa-solid fa-arrow-up"></i>
-
     </button>
 
     <!-- ==========================================
-         JAVASCRIPT
+         JAVASCRIPT FILES
     =========================================== -->
-
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
+    
     <script src="assets/js/config.js"></script>
-
     <script src="assets/js/auth.js"></script>
-
     <script src="assets/js/api.js"></script>
-
     <script src="assets/js/ui.js"></script>
-
     <script src="assets/js/dashboard.js"></script>
-
     <script src="assets/js/members.js"></script>
-
     <script src="assets/js/contributions.js"></script>
-
     <script src="assets/js/loans.js"></script>
-
     <script src="assets/js/applications.js"></script>
-
     <script src="assets/js/reports.js"></script>
-
     <script src="assets/js/settings.js"></script>
-
     <script src="assets/js/app.js"></script>
-
 </body>
-
 </html>
