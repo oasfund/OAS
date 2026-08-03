@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Borrowers Masterlist</title>
+
+<link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+
+<header>
+
+<h1>👥 Borrowers Masterlist</h1>
+
+</header>
+
+<main class="container">
+
+<h2>All Borrowers</h2>
+
+<table border="1" width="100%" id="borrowerTable">
+
+<tr>
+
+<th>Reference</th>
+
+<th>Borrower</th>
+
+<th>Mobile</th>
+
+<th>Loan Amount</th>
+
+<th>Status</th>
+
+</tr>
+
+</table>
+
+<br>
+
+<button onclick="window.location='dashboard.html'">
+
+Back to Dashboard
+
+</button>
+
+</main>
+
+<script>
+
+const loans=JSON.parse(localStorage.getItem("oas_loans"))||[];
+
+const table=document.getElementById("borrowerTable");
+
+if(loans.length===0){
+
+table.innerHTML+=`
+
+<tr>
+
+<td colspan="5" align="center">
+
+No Borrowers Found
+
+</td>
+
+</tr>
+
+`;
+
+}else{
+
+loans.forEach(loan=>{
+
+table.innerHTML+=`
+
+<tr>
+
+<td>${loan.reference}</td>
+
+<td>${loan.fullName}</td>
+
+<td>${loan.mobile}</td>
+
+<td>₱${loan.amount}</td>
+
+<td>${loan.status}</td>
+
+</tr>
+
+`;
+
+});
+
+}
+
+</script>
+
+</body>
+
+</html>
