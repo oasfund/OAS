@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>OAS Admin Dashboard</title>
 
 <link rel="stylesheet" href="../css/style.css">
@@ -13,19 +15,21 @@
 
 <header>
 
-<h1>🛡 OAS ADMIN DASHBOARD</h1>
+<h1>🏦 OAS MANAGEMENT SYSTEM</h1>
+
+<p>Administrator Dashboard</p>
 
 </header>
 
 <main class="container">
 
-<h2>System Overview</h2>
+<h2>Executive Dashboard</h2>
 
 <div class="card">
 
-<p><strong>Total Members</strong></p>
+<h3>Total Members</h3>
 
-<h2 id="members">0</h2>
+<h1 id="members">0</h1>
 
 </div>
 
@@ -33,19 +37,9 @@
 
 <div class="card">
 
-<p><strong>Total Loan Applications</strong></p>
+<h3>Total Borrowers</h3>
 
-<h2 id="loans">0</h2>
-
-</div>
-
-<br>
-
-<div class="card">
-
-<p><strong>Pending Loans</strong></p>
-
-<h2 id="pending">0</h2>
+<h1 id="borrowers">0</h1>
 
 </div>
 
@@ -53,9 +47,9 @@
 
 <div class="card">
 
-<p><strong>Approved Loans</strong></p>
+<h3>Total Loan Applications</h3>
 
-<h2 id="approved">0</h2>
+<h1 id="applications">0</h1>
 
 </div>
 
@@ -63,21 +57,59 @@
 
 <div class="card">
 
-<p><strong>Rejected Loans</strong></p>
+<h3>Pending Loans</h3>
 
-<h2 id="rejected">0</h2>
+<h1 id="pending">0</h1>
 
 </div>
 
 <br>
 
-<h2>Administration</h2>
+<div class="card">
+
+<h3>Approved Loans</h3>
+
+<h1 id="approved">0</h1>
+
+</div>
+
+<br>
+
+<div class="card">
+
+<h3>Released Loans</h3>
+
+<h1 id="released">0</h1>
+
+</div>
+
+<br>
+
+<div class="card">
+
+<h3>Completed Loans</h3>
+
+<h1 id="completed">0</h1>
+
+</div>
+
+<br>
+
+<h2>Management Modules</h2>
 
 <ul>
 
 <li><a href="members.html">👥 Member Management</a></li>
 
+<li><a href="borrowers.html">👤 Borrowers Masterlist</a></li>
+
 <li><a href="loans.html">💰 Loan Management</a></li>
+
+<li><a href="releases.html">💵 Loan Releases</a></li>
+
+<li><a href="collections.html">💳 Collections</a></li>
+
+<li><a href="completed-loans.html">✅ Completed Loans</a></li>
 
 <li><a href="contributions.html">📅 Contributions</a></li>
 
@@ -99,15 +131,20 @@ const loans=JSON.parse(localStorage.getItem("oas_loans"))||[];
 
 document.getElementById("members").innerHTML=members.length;
 
-document.getElementById("loans").innerHTML=loans.length;
+document.getElementById("borrowers").innerHTML=loans.length;
+
+document.getElementById("applications").innerHTML=loans.length;
 
 document.getElementById("pending").innerHTML=loans.filter(x=>x.status==="Pending").length;
 
 document.getElementById("approved").innerHTML=loans.filter(x=>x.status==="Approved").length;
 
-document.getElementById("rejected").innerHTML=loans.filter(x=>x.status==="Rejected").length;
+document.getElementById("released").innerHTML=loans.filter(x=>x.status==="Released").length;
+
+document.getElementById("completed").innerHTML=loans.filter(x=>x.status==="Completed").length;
 
 </script>
 
 </body>
+
 </html>
