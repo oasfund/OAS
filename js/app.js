@@ -1,19 +1,25 @@
-const OAS = {
-members: JSON.parse(localStorage.getItem("oas_members")) || [],
+// ===============================
+// OAS LOAN STORAGE
+// ===============================
 
-save() {
-localStorage.setItem("oas_members", JSON.stringify(this.members));
-},
+let loans = JSON.parse(localStorage.getItem("oas_loans")) || [];
 
-generateMemberID() {
-return "MEM-" + String(this.members.length + 1).padStart(6,"0");
-},
+function generateLoanReference(){
 
-register(member) {
-member.memberId = this.generateMemberID();
-member.dateCreated = new Date().toLocaleDateString();
-this.members.push(member);
-this.save();
-return member;
+return "LN-"+String(loans.length+1).padStart(6,"0");
+
 }
-};
+
+function saveLoan(data){
+
+data.reference=generateLoanReference();
+
+data.date=new Date().toLocaleDateString();
+
+loans.push(data);
+
+localStorage.setItem("oas_loans",JSON.stringify(loans));
+
+return data;
+
+}
