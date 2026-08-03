@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Reports</title>
+
+<link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+
+<header>
+
+<h1>📊 OAS Reports</h1>
+
+</header>
+
+<main class="container">
+
+<h2>System Reports</h2>
+
+<div class="card">
+
+<p><strong>Total Members:</strong> <span id="members">0</span></p>
+
+<p><strong>Total Loan Applications:</strong> <span id="loans">0</span></p>
+
+<p><strong>Total Contributions:</strong> ₱0.00</p>
+
+<p><strong>Total Referral Incentives:</strong> ₱0.00</p>
+
+</div>
+
+<br>
+
+<button onclick="window.location='dashboard.html'">
+
+Back to Dashboard
+
+</button>
+
+</main>
+
+<script>
+
+const members=JSON.parse(localStorage.getItem("oas_members"))||[];
+
+const loans=JSON.parse(localStorage.getItem("oas_loans"))||[];
+
+document.getElementById("members").textContent=members.length;
+
+document.getElementById("loans").textContent=loans.length;
+
+</script>
+
+</body>
+</html>
