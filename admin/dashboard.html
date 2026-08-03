@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -18,27 +19,43 @@
 
 <p>Executive Dashboard</p>
 
-<nav>
-
-<a href="dashboard.html">Dashboard</a>
-<a href="members.html">Members</a>
-<a href="borrowers.html">Borrowers</a>
-<a href="loans.html">Loans</a>
-<a href="releases.html">Releases</a>
-<a href="collections.html">Collections</a>
-<a href="completed-loans.html">Completed</a>
-<a href="contributions.html">Contributions</a>
-<a href="referrals.html">Referrals</a>
-<a href="reports.html">Reports</a>
-<a href="settings.html">Settings</a>
-
-</nav>
-
 </header>
 
-<main class="container">
+<div style="display:flex;min-height:100vh;">
 
-<h2>Executive Dashboard</h2>
+<aside style="width:260px;background:#0F172A;padding:20px;">
+
+<h2 style="color:white;text-align:center;">MENU</h2>
+
+<hr>
+
+<p><a href="dashboard.html" style="color:white;text-decoration:none;">🏠 Dashboard</a></p>
+
+<p><a href="members.html" style="color:white;text-decoration:none;">👥 Members</a></p>
+
+<p><a href="borrowers.html" style="color:white;text-decoration:none;">👤 Borrowers</a></p>
+
+<p><a href="loans.html" style="color:white;text-decoration:none;">💰 Loans</a></p>
+
+<p><a href="releases.html" style="color:white;text-decoration:none;">💵 Releases</a></p>
+
+<p><a href="collections.html" style="color:white;text-decoration:none;">💳 Collections</a></p>
+
+<p><a href="completed-loans.html" style="color:white;text-decoration:none;">✅ Completed</a></p>
+
+<p><a href="contributions.html" style="color:white;text-decoration:none;">📅 Contributions</a></p>
+
+<p><a href="referrals.html" style="color:white;text-decoration:none;">🎁 Referrals</a></p>
+
+<p><a href="reports.html" style="color:white;text-decoration:none;">📊 Reports</a></p>
+
+<p><a href="settings.html" style="color:white;text-decoration:none;">⚙ Settings</a></p>
+
+</aside>
+
+<main style="flex:1;padding:25px;">
+
+<h2>Executive Summary</h2>
 
 <div class="features">
 
@@ -72,55 +89,11 @@
 <h1 id="completed">0</h1>
 </div>
 
-<div class="card">
-<h3>Total Contributions</h3>
-<h1 id="contributions">₱0.00</h1>
-</div>
-
-<div class="card">
-<h3>Total Referral Incentives</h3>
-<h1 id="referrals">₱0.00</h1>
-</div>
-
-</div>
-
-<br>
-
-<div class="card">
-
-<h2>📈 Financial Summary</h2>
-
-<table>
-
-<tr>
-
-<td>Total Loan Portfolio</td>
-
-<td id="portfolio">₱0.00</td>
-
-</tr>
-
-<tr>
-
-<td>Total Collections</td>
-
-<td id="collections">₱0.00</td>
-
-</tr>
-
-<tr>
-
-<td>Outstanding Balance</td>
-
-<td id="balance">₱0.00</td>
-
-</tr>
-
-</table>
-
 </div>
 
 </main>
+
+</div>
 
 <script src="../js/app.js"></script>
 
@@ -128,32 +101,17 @@
 
 const s=dashboardSummary();
 
-document.getElementById("members").textContent=s.members;
-document.getElementById("borrowers").textContent=s.borrowers;
-document.getElementById("pending").textContent=s.pending;
-document.getElementById("approved").textContent=s.approved;
-document.getElementById("released").textContent=s.released;
-document.getElementById("completed").textContent=s.completed;
-document.getElementById("contributions").textContent="₱"+s.contributions.toFixed(2);
-document.getElementById("referrals").textContent="₱"+s.referrals.toFixed(2);
+members.textContent=s.members;
 
-const loans=getData(STORAGE.loans);
+borrowers.textContent=s.borrowers;
 
-let portfolio=0;
-let collections=0;
+pending.textContent=s.pending;
 
-loans.forEach(loan=>{
+approved.textContent=s.approved;
 
-portfolio+=Number(loan.amount||0);
-collections+=Number(loan.payment||0);
+released.textContent=s.released;
 
-});
-
-const balance=portfolio-collections;
-
-document.getElementById("portfolio").textContent="₱"+portfolio.toFixed(2);
-document.getElementById("collections").textContent="₱"+collections.toFixed(2);
-document.getElementById("balance").textContent="₱"+balance.toFixed(2);
+completed.textContent=s.completed;
 
 </script>
 
