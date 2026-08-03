@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -21,41 +20,63 @@
 
 <main class="container">
 
-<h2>Weekly Contributions</h2>
+<h2>Record Weekly Contribution</h2>
 
-<table border="1" width="100%">
+<form id="contributionForm">
+
+<label>Member ID</label>
+
+<input
+type="text"
+id="memberId"
+required>
+
+<br><br>
+
+<label>Week</label>
+
+<input
+type="text"
+id="week"
+placeholder="Week 1"
+required>
+
+<br><br>
+
+<label>Contribution Amount</label>
+
+<input
+type="number"
+id="amount"
+required>
+
+<br><br>
+
+<button type="submit">
+
+Save Contribution
+
+</button>
+
+</form>
+
+<br>
+
+<h2>Contribution Records</h2>
+
+<table border="1" width="100%" id="table">
 
 <tr>
 
 <th>Member ID</th>
 
-<th>Member Name</th>
-
 <th>Week</th>
 
-<th>Contribution</th>
-
-<th>Status</th>
-
-</tr>
-
-<tr>
-
-<td colspan="5" align="center">
-
-No Contribution Records
-
-</td>
+<th>Amount</th>
 
 </tr>
 
 </table>
-
-<br>
-
-<h3>Total Collection</h3>
-
-<p><strong>₱0.00</strong></p>
 
 <br>
 
@@ -66,6 +87,94 @@ Back to Dashboard
 </button>
 
 </main>
+
+<script>
+
+let contributions=JSON.parse(localStorage.getItem("oas_contributions"))||[];
+
+const table=document.getElementById("table");
+
+function load(){
+
+table.innerHTML=`
+
+<tr>
+
+<th>Member ID</th>
+
+<th>Week</th>
+
+<th>Amount</th>
+
+</tr>
+
+`;
+
+if(contributions.length===0){
+
+table.innerHTML+=`
+
+<tr>
+
+<td colspan="3" align="center">
+
+No Contribution Records
+
+</td>
+
+</tr>
+
+`;
+
+return;
+
+}
+
+contributions.forEach(c=>{
+
+table.innerHTML+=`
+
+<tr>
+
+<td>${c.memberId}</td>
+
+<td>${c.week}</td>
+
+<td>₱${c.amount}</td>
+
+</tr>
+
+`;
+
+});
+
+}
+
+document.getElementById("contributionForm").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+contributions.push({
+
+memberId:memberId.value,
+
+week:week.value,
+
+amount:amount.value
+
+});
+
+localStorage.setItem("oas_contributions",JSON.stringify(contributions));
+
+this.reset();
+
+load();
+
+});
+
+load();
+
+</script>
 
 </body>
 </html>
