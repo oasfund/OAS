@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -14,7 +15,19 @@
 
 <header>
 
-<h1>📅 My Contributions</h1>
+<h1>📅 MY CONTRIBUTIONS</h1>
+
+<p>OAS Management System</p>
+
+<nav>
+
+<a href="dashboard.html">Dashboard</a>
+<a href="profile.html">Profile</a>
+<a href="my-loans.html">My Loans</a>
+<a href="contributions.html">Contributions</a>
+<a href="referrals.html">Referrals</a>
+
+</nav>
 
 </header>
 
@@ -22,7 +35,7 @@
 
 <h2>Contribution History</h2>
 
-<table border="1" width="100%">
+<table id="contributionTable">
 
 <tr>
 
@@ -30,52 +43,85 @@
 
 <th>Amount</th>
 
-<th>Status</th>
-
-</tr>
-
-<tr>
-
-<td>Week 1</td>
-
-<td>₱20.00</td>
-
-<td>Paid</td>
-
-</tr>
-
-<tr>
-
-<td>Week 2</td>
-
-<td>₱20.00</td>
-
-<td>Pending</td>
-
 </tr>
 
 </table>
 
 <br>
 
+<div class="card">
+
 <h3>Total Contributions</h3>
 
-<p><strong>₱40.00</strong></p>
+<h1 id="total">₱0.00</h1>
 
-<br>
-
-<a href="dashboard.html">
-
-<button>
-
-Back to Dashboard
-
-</button>
-
-</a>
+</div>
 
 </main>
 
-</body>
+<script src="../js/app.js"></script>
 
+<script>
+
+const member=JSON.parse(localStorage.getItem(STORAGE.currentMember));
+
+if(!member){
+
+window.location="login.html";
+
+}
+
+const contributions=getData(STORAGE.contributions).filter(
+
+c=>c.memberId===member.memberId
+
+);
+
+const table=document.getElementById("contributionTable");
+
+let total=0;
+
+if(contributions.length===0){
+
+table.innerHTML+=`
+
+<tr>
+
+<td colspan="2" align="center">
+
+No Contribution Records
+
+</td>
+
+</tr>
+
+`;
+
+}else{
+
+contributions.forEach(c=>{
+
+total+=Number(c.amount);
+
+table.innerHTML+=`
+
+<tr>
+
+<td>${c.week}</td>
+
+<td>₱${Number(c.amount).toFixed(2)}</td>
+
+</tr>
+
+`;
+
+});
+
+}
+
+document.getElementById("total").textContent="₱"+total.toFixed(2);
+
+</script>
+
+</body>
 </html>
