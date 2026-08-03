@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -21,9 +20,59 @@
 
 <main class="container">
 
+<h2>Record Referral Incentive</h2>
+
+<form id="referralForm">
+
+<label>Referrer Name</label>
+
+<input
+type="text"
+id="referrer"
+required>
+
+<br><br>
+
+<label>Borrower Name</label>
+
+<input
+type="text"
+id="borrower"
+required>
+
+<br><br>
+
+<label>Loan Type</label>
+
+<input
+type="text"
+id="loanType"
+required>
+
+<br><br>
+
+<label>Incentive Amount</label>
+
+<input
+type="number"
+id="amount"
+required>
+
+<br><br>
+
+<button type="submit">
+
+Save Incentive
+
+</button>
+
+</form>
+
+<br>
+
 <h2>Referral Records</h2>
 
-<table border="1" width="100%">
+<table border="1" width="100%" id="table">
 
 <tr>
 
@@ -33,29 +82,11 @@
 
 <th>Loan Type</th>
 
-<th>Incentive</th>
-
-<th>Status</th>
-
-</tr>
-
-<tr>
-
-<td colspan="5" align="center">
-
-No Referral Records
-
-</td>
+<th>Amount</th>
 
 </tr>
 
 </table>
-
-<br>
-
-<h3>Total Incentives Paid</h3>
-
-<p><strong>₱0.00</strong></p>
 
 <br>
 
@@ -66,6 +97,100 @@ Back to Dashboard
 </button>
 
 </main>
+
+<script>
+
+let referrals=JSON.parse(localStorage.getItem("oas_referrals"))||[];
+
+const table=document.getElementById("table");
+
+function load(){
+
+table.innerHTML=`
+
+<tr>
+
+<th>Referrer</th>
+
+<th>Borrower</th>
+
+<th>Loan Type</th>
+
+<th>Amount</th>
+
+</tr>
+
+`;
+
+if(referrals.length===0){
+
+table.innerHTML+=`
+
+<tr>
+
+<td colspan="4" align="center">
+
+No Referral Records
+
+</td>
+
+</tr>
+
+`;
+
+return;
+
+}
+
+referrals.forEach(r=>{
+
+table.innerHTML+=`
+
+<tr>
+
+<td>${r.referrer}</td>
+
+<td>${r.borrower}</td>
+
+<td>${r.loanType}</td>
+
+<td>₱${r.amount}</td>
+
+</tr>
+
+`;
+
+});
+
+}
+
+document.getElementById("referralForm").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+referrals.push({
+
+referrer:referrer.value,
+
+borrower:borrower.value,
+
+loanType:loanType.value,
+
+amount:amount.value
+
+});
+
+localStorage.setItem("oas_referrals",JSON.stringify(referrals));
+
+this.reset();
+
+load();
+
+});
+
+load();
+
+</script>
 
 </body>
 </html>
