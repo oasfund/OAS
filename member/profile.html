@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>My Profile</title>
+<title>Member Profile</title>
 
 <link rel="stylesheet" href="../css/style.css">
 
@@ -15,73 +15,60 @@
 
 <header>
 
-<h1>🏦 OAS Management System</h1>
-
-<nav>
-
-<a href="dashboard.html">Dashboard</a>
-
-<a href="profile.html">Profile</a>
-
-<a href="my-loans.html">My Loans</a>
-
-<a href="contributions.html">Contributions</a>
-
-<a href="referrals.html">Referral Incentives</a>
-
-</nav>
+<h1>👤 Member Profile</h1>
 
 </header>
 
-<main>
+<main class="container">
 
-<h2>Member Profile</h2>
+<h2>My Information</h2>
 
-<table>
-
-<tr>
-<td><strong>Member ID</strong></td>
-<td>MEM-000001</td>
-</tr>
-
-<tr>
-<td><strong>Full Name</strong></td>
-<td>Juan Dela Cruz</td>
-</tr>
-
-<tr>
-<td><strong>Mobile Number</strong></td>
-<td>09123456789</td>
-</tr>
-
-<tr>
-<td><strong>Email</strong></td>
-<td>member@email.com</td>
-</tr>
-
-<tr>
-<td><strong>Address</strong></td>
-<td>Cebu City</td>
-</tr>
-
-<tr>
-<td><strong>Membership Status</strong></td>
-<td>ACTIVE</td>
-</tr>
-
-</table>
+<div id="profile"></div>
 
 <br>
 
-<button>Edit Profile</button>
+<a href="dashboard.html">
+
+<button>
+
+Back to Dashboard
+
+</button>
+
+</a>
 
 </main>
 
-<footer>
+<script>
 
-<p>© 2026 OAS Management System</p>
+const member=JSON.parse(localStorage.getItem("oas_current_member"));
 
-</footer>
+if(!member){
+
+window.location="login.html";
+
+}
+
+document.getElementById("profile").innerHTML=`
+
+<p><strong>Member ID:</strong> ${member.memberId}</p>
+
+<p><strong>Full Name:</strong> ${member.fullName}</p>
+
+<p><strong>Birth Date:</strong> ${member.birthDate}</p>
+
+<p><strong>Mobile:</strong> ${member.mobile}</p>
+
+<p><strong>Email:</strong> ${member.email}</p>
+
+<p><strong>Address:</strong> ${member.address}</p>
+
+<p><strong>Username:</strong> ${member.username}</p>
+
+`;
+
+</script>
 
 </body>
+
 </html>
