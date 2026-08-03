@@ -14,7 +14,21 @@
 
 <header>
 
-<h1>👥 Member Management</h1>
+<h1>👥 MEMBER MANAGEMENT</h1>
+
+<nav>
+
+<a href="dashboard.html">Dashboard</a>
+
+<a href="members.html">Members</a>
+
+<a href="borrowers.html">Borrowers</a>
+
+<a href="loans.html">Loans</a>
+
+<a href="reports.html">Reports</a>
+
+</nav>
 
 </header>
 
@@ -22,7 +36,7 @@
 
 <h2>Registered Members</h2>
 
-<table border="1" width="100%" id="memberTable">
+<table id="memberTable">
 
 <tr>
 
@@ -30,11 +44,13 @@
 
 <th>Full Name</th>
 
-<th>Username</th>
-
 <th>Mobile</th>
 
 <th>Email</th>
+
+<th>Username</th>
+
+<th>Status</th>
 
 </tr>
 
@@ -52,13 +68,31 @@ Back to Dashboard
 
 <script>
 
-const members = JSON.parse(localStorage.getItem("oas_members")) || [];
+const members=JSON.parse(localStorage.getItem("oas_members"))||[];
 
-const table = document.getElementById("memberTable");
+const table=document.getElementById("memberTable");
+
+if(members.length===0){
+
+table.innerHTML+=`
+
+<tr>
+
+<td colspan="6" align="center">
+
+No Registered Members
+
+</td>
+
+</tr>
+
+`;
+
+}else{
 
 members.forEach(member=>{
 
-table.innerHTML += `
+table.innerHTML+=`
 
 <tr>
 
@@ -66,11 +100,13 @@ table.innerHTML += `
 
 <td>${member.fullName}</td>
 
-<td>${member.username}</td>
-
 <td>${member.mobile}</td>
 
 <td>${member.email}</td>
+
+<td>${member.username}</td>
+
+<td>ACTIVE</td>
 
 </tr>
 
@@ -78,7 +114,10 @@ table.innerHTML += `
 
 });
 
+}
+
 </script>
 
 </body>
+
 </html>
