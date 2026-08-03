@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Member Dashboard</title>
 
 <link rel="stylesheet" href="../css/style.css">
@@ -15,53 +13,63 @@
 
 <header>
 
-<h1>🏦 OAS Management System</h1>
-
-<nav>
-
-<a href="../index.html">Home</a>
-
-<a href="dashboard.html">Dashboard</a>
-
-<a href="profile.html">Profile</a>
-
-<a href="my-loans.html">My Loans</a>
-
-<a href="contributions.html">Contributions</a>
-
-<a href="referrals.html">Referral Incentives</a>
-
-</nav>
+<h1>🏦 OAS Member Dashboard</h1>
 
 </header>
 
-<main>
+<main class="container">
 
-<h2>Member Dashboard</h2>
+<h2 id="welcome">Welcome</h2>
 
-<h3>Welcome to OAS</h3>
+<div class="card">
+<h3>👤 Profile</h3>
+<p><a href="profile.html">Open Profile</a></p>
+</div>
 
-<p>Select a module below.</p>
+<div class="card">
+<h3>💰 My Loans</h3>
+<p><a href="my-loans.html">Open My Loans</a></p>
+</div>
 
-<ul>
+<div class="card">
+<h3>📅 Contributions</h3>
+<p><a href="contributions.html">Open Contributions</a></p>
+</div>
 
-<li><a href="profile.html">👤 My Profile</a></li>
+<div class="card">
+<h3>🎁 Referral Incentives</h3>
+<p><a href="referrals.html">Open Referrals</a></p>
+</div>
 
-<li><a href="my-loans.html">💰 My Loans</a></li>
+<br>
 
-<li><a href="contributions.html">📅 Weekly Contributions</a></li>
-
-<li><a href="referrals.html">🎁 Referral Incentives</a></li>
-
-</ul>
+<button onclick="logout()">
+Logout
+</button>
 
 </main>
 
-<footer>
+<script>
 
-<p>© 2026 OAS Management System</p>
+const member=JSON.parse(localStorage.getItem("oas_current_member"));
 
-</footer>
+if(!member){
+
+window.location="login.html";
+
+}
+
+document.getElementById("welcome").innerHTML="Welcome, "+member.fullName;
+
+function logout(){
+
+localStorage.removeItem("oas_current_member");
+
+window.location="login.html";
+
+}
+
+</script>
 
 </body>
 </html>
