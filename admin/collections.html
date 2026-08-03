@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Collections</title>
+
+<link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+
+<header>
+
+<h1>💳 Collection Management</h1>
+
+</header>
+
+<main class="container">
+
+<h2>Loan Collections</h2>
+
+<table border="1" width="100%" id="collectionTable">
+
+<tr>
+
+<th>Reference</th>
+
+<th>Borrower</th>
+
+<th>Loan Amount</th>
+
+<th>Payment</th>
+
+<th>Balance</th>
+
+<th>Action</th>
+
+</tr>
+
+</table>
+
+<br>
+
+<button onclick="window.location='dashboard.html'">
+
+Back to Dashboard
+
+</button>
+
+</main>
+
+<script>
+
+let loans=JSON.parse(localStorage.getItem("oas_loans"))||[];
+
+const table=document.getElementById("collectionTable");
+
+function load(){
+
+table.innerHTML=`
+
+<tr>
+
+<th>Reference</th>
+
+<th>Borrower</th>
+
+<th>Loan Amount</th>
+
+<th>Payment</th>
+
+<th>Balance</th>
+
+<th>Action</th>
+
+</tr>
+
+`;
+
+const released=loans.filter(x=>x.status==="Released");
+
+if(released.length===0){
+
+table.innerHTML+=`
+
+<tr>
+
+<td colspan="6" align="center">
+
+No Released Loans
+
+</td>
+
+</tr>
+
+`;
+
+return;
+
+}
+
+released.forEach((loan,index)=>{
+
+let payment=loan.payment||0;
+
+let balance=Number(loan.amount)-payment;
+
+table.innerHTML+=`
+
+<tr>
+
+<td>${loan.reference}</td>
+
+<td>${loan.fullName}</td>
+
+<td>₱${loan.amount}</td>
+
+<td>₱${payment}</td>
+
+<td>₱${balance}</td>
+
+<td>
+
+<button onclick="collect(${index})">
+
+Collect ₱100
+
+</button>
+
+</td>
+
+</tr>
+
+`;
+
+});
+
+}
+
+function collect(index){
+
+const released=loans.filter(x=>x.status==="Released");
+
+const ref=released[index].reference;
+
+const actual=loans.findIndex(x=>x.reference===ref);
+
+loans[actual].payment=(loans[actual].payment||0)+100;
+
+if(loans[actual].payment>=Number(loans[actual].amount)){
+
+loans[actual].status="Completed";
+
+}
+
+localStorage.setItem("oas_loans",JSON.stringify(loans));
+
+load();
+
+}
+
+load();
+
+</script>
+
+</body>
+
+</html>
