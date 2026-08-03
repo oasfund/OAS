@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Admin Dashboard</title>
+<title>OAS Admin Dashboard</title>
 
 <link rel="stylesheet" href="../css/style.css">
 
@@ -14,81 +13,99 @@
 
 <header>
 
-<h1>🛡 OAS Admin Dashboard</h1>
-
-<p>Administrator Control Panel</p>
+<h1>🛡 OAS ADMIN DASHBOARD</h1>
 
 </header>
 
 <main class="container">
 
-<h2>System Summary</h2>
+<h2>System Overview</h2>
 
 <div class="card">
-<h3>Total Members</h3>
-<p id="members">0</p>
+
+<p><strong>Total Members</strong></p>
+
+<h2 id="members">0</h2>
+
 </div>
 
 <br>
 
 <div class="card">
-<h3>Total Loan Applications</h3>
-<p id="loans">0</p>
+
+<p><strong>Total Loan Applications</strong></p>
+
+<h2 id="loans">0</h2>
+
 </div>
 
 <br>
 
 <div class="card">
-<h3>Total Weekly Contributions</h3>
-<p>₱0.00</p>
+
+<p><strong>Pending Loans</strong></p>
+
+<h2 id="pending">0</h2>
+
 </div>
 
 <br>
 
 <div class="card">
-<h3>Total Referral Incentives</h3>
-<p>₱0.00</p>
+
+<p><strong>Approved Loans</strong></p>
+
+<h2 id="approved">0</h2>
+
 </div>
 
 <br>
 
-<h2>Quick Menu</h2>
+<div class="card">
+
+<p><strong>Rejected Loans</strong></p>
+
+<h2 id="rejected">0</h2>
+
+</div>
+
+<br>
+
+<h2>Administration</h2>
 
 <ul>
 
-<li>👥 Member Management</li>
+<li><a href="members.html">👥 Member Management</a></li>
 
-<li>💰 Loan Management</li>
+<li><a href="loans.html">💰 Loan Management</a></li>
 
-<li>📅 Contribution Management</li>
+<li><a href="contributions.html">📅 Contributions</a></li>
 
-<li>🎁 Referral Incentives</li>
+<li><a href="referrals.html">🎁 Referral Incentives</a></li>
 
-<li>📊 Reports</li>
+<li><a href="reports.html">📊 Reports</a></li>
 
-<li>⚙️ Settings</li>
+<li><a href="settings.html">⚙ Settings</a></li>
 
 </ul>
-
-<br>
-
-<button onclick="window.location='../index.html'">
-
-Back to Home
-
-</button>
 
 </main>
 
 <script>
 
-const members = JSON.parse(localStorage.getItem("oas_members")) || [];
+const members=JSON.parse(localStorage.getItem("oas_members"))||[];
 
-const loans = JSON.parse(localStorage.getItem("oas_loans")) || [];
+const loans=JSON.parse(localStorage.getItem("oas_loans"))||[];
 
-document.getElementById("members").innerHTML = members.length;
+document.getElementById("members").innerHTML=members.length;
 
-document.getElementById("loans").innerHTML = loans.length;
+document.getElementById("loans").innerHTML=loans.length;
+
+document.getElementById("pending").innerHTML=loans.filter(x=>x.status==="Pending").length;
+
+document.getElementById("approved").innerHTML=loans.filter(x=>x.status==="Approved").length;
+
+document.getElementById("rejected").innerHTML=loans.filter(x=>x.status==="Rejected").length;
 
 </script>
 
