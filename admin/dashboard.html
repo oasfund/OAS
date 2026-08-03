@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Admin Dashboard</title>
 
 <link rel="stylesheet" href="../css/style.css">
@@ -15,6 +16,8 @@
 
 <h1>🛡 OAS Admin Dashboard</h1>
 
+<p>Administrator Control Panel</p>
+
 </header>
 
 <main class="container">
@@ -26,15 +29,21 @@
 <p id="members">0</p>
 </div>
 
+<br>
+
 <div class="card">
 <h3>Total Loan Applications</h3>
 <p id="loans">0</p>
 </div>
 
+<br>
+
 <div class="card">
-<h3>Total Contributions</h3>
+<h3>Total Weekly Contributions</h3>
 <p>₱0.00</p>
 </div>
+
+<br>
 
 <div class="card">
 <h3>Total Referral Incentives</h3>
@@ -43,7 +52,27 @@
 
 <br>
 
-<button onclick="location.href='../index.html'">
+<h2>Quick Menu</h2>
+
+<ul>
+
+<li>👥 Member Management</li>
+
+<li>💰 Loan Management</li>
+
+<li>📅 Contribution Management</li>
+
+<li>🎁 Referral Incentives</li>
+
+<li>📊 Reports</li>
+
+<li>⚙️ Settings</li>
+
+</ul>
+
+<br>
+
+<button onclick="window.location='../index.html'">
 
 Back to Home
 
@@ -53,11 +82,13 @@ Back to Home
 
 <script>
 
-const members=JSON.parse(localStorage.getItem("oas_members"))||[];
+const members = JSON.parse(localStorage.getItem("oas_members")) || [];
 
-document.getElementById("members").innerHTML=members.length;
+const loans = JSON.parse(localStorage.getItem("oas_loans")) || [];
 
-document.getElementById("loans").innerHTML="0";
+document.getElementById("members").innerHTML = members.length;
+
+document.getElementById("loans").innerHTML = loans.length;
 
 </script>
 
