@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Loan Release</title>
+
+<title>Loan Releases</title>
 
 <link rel="stylesheet" href="../css/style.css">
 
@@ -13,24 +15,34 @@
 
 <header>
 
-<h1>💵 Loan Release</h1>
+<h1>💵 LOAN RELEASES</h1>
+
+<nav>
+
+<a href="dashboard.html">Dashboard</a>
+<a href="members.html">Members</a>
+<a href="borrowers.html">Borrowers</a>
+<a href="loans.html">Loans</a>
+<a href="releases.html">Releases</a>
+<a href="collections.html">Collections</a>
+<a href="reports.html">Reports</a>
+
+</nav>
 
 </header>
 
 <main class="container">
 
-<h2>Approved Loans Ready for Release</h2>
+<h2>Approved Loans</h2>
 
-<table border="1" width="100%" id="loanTable">
+<table id="releaseTable">
 
 <tr>
 
 <th>Reference</th>
-
 <th>Borrower</th>
-
 <th>Amount</th>
-
+<th>Status</th>
 <th>Release</th>
 
 </tr>
@@ -51,7 +63,13 @@ Back to Dashboard
 
 let loans=JSON.parse(localStorage.getItem("oas_loans"))||[];
 
-const table=document.getElementById("loanTable");
+const table=document.getElementById("releaseTable");
+
+function save(){
+
+localStorage.setItem("oas_loans",JSON.stringify(loans));
+
+}
 
 function load(){
 
@@ -60,11 +78,9 @@ table.innerHTML=`
 <tr>
 
 <th>Reference</th>
-
 <th>Borrower</th>
-
 <th>Amount</th>
-
+<th>Status</th>
 <th>Release</th>
 
 </tr>
@@ -79,7 +95,7 @@ table.innerHTML+=`
 
 <tr>
 
-<td colspan="4" align="center">
+<td colspan="5" align="center">
 
 No Approved Loans
 
@@ -103,7 +119,9 @@ table.innerHTML+=`
 
 <td>${loan.fullName}</td>
 
-<td>₱${loan.amount}</td>
+<td>₱${Number(loan.amount).toFixed(2)}</td>
+
+<td>${loan.status}</td>
 
 <td>
 
@@ -125,19 +143,15 @@ Release
 
 function releaseLoan(reference){
 
-const index=loans.findIndex(x=>x.reference===reference);
+const loan=loans.find(x=>x.reference===reference);
 
-if(index>-1){
+loan.status="Released";
 
-loans[index].status="Released";
-
-localStorage.setItem("oas_loans",JSON.stringify(loans));
-
-alert("Loan Released Successfully");
+save();
 
 load();
 
-}
+alert("Loan Released Successfully");
 
 }
 
@@ -146,4 +160,5 @@ load();
 </script>
 
 </body>
+
 </html>
