@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -16,31 +14,25 @@
 
 <header>
 
-<h1>🏦 OAS Management System</h1>
+<h1>🛡 OAS Management System</h1>
 
-<nav>
-
-<a href="../index.html">Home</a>
-
-<a href="../public/about.html">About</a>
-
-<a href="../public/contact.html">Contact</a>
-
-</nav>
+<p>Administrator Login</p>
 
 </header>
 
-<main>
+<main class="container">
 
-<h2>Administrator Login</h2>
+<h2>Admin Login</h2>
 
-<form>
+<form id="adminLoginForm">
 
 <label>Username</label>
 
 <input
 type="text"
-placeholder="Administrator Username">
+id="username"
+placeholder="Administrator Username"
+required>
 
 <br><br>
 
@@ -48,7 +40,9 @@ placeholder="Administrator Username">
 
 <input
 type="password"
-placeholder="Administrator Password">
+id="password"
+placeholder="Administrator Password"
+required>
 
 <br><br>
 
@@ -62,16 +56,31 @@ Login
 
 </main>
 
-<footer>
+<script>
 
-<p>
+document.getElementById("adminLoginForm").addEventListener("submit",function(e){
 
-© 2026 OAS Management System
+e.preventDefault();
 
-</p>
+const username=document.getElementById("username").value;
 
-</footer>
+const password=document.getElementById("password").value;
+
+if(username==="admin" && password==="admin123"){
+
+alert("Welcome Administrator");
+
+window.location="dashboard.html";
+
+}else{
+
+alert("Invalid Administrator Account");
+
+}
+
+});
+
+</script>
 
 </body>
-
 </html>
