@@ -1,191 +1,197 @@
-// ===============================
-// OAS MANAGEMENT SYSTEM V2 CORE
-// ===============================
+/* ==========================================
+   OAS MANAGEMENT SYSTEM V2
+   app.js
+========================================== */
 
-const STORAGE={
+document.addEventListener("DOMContentLoaded", () => {
 
-members:"oas_members",
+    /* ==========================
+       ACTIVE NAVIGATION
+    ========================== */
 
-loans:"oas_loans",
+    const currentPage = window.location.pathname.split("/").pop();
 
-contributions:"oas_contributions",
+    document.querySelectorAll("nav a").forEach(link => {
 
-referrals:"oas_referrals",
+        const href = link.getAttribute("href");
 
-currentMember:"oas_current_member"
+        if (href && href.endsWith(currentPage)) {
 
-};
+            link.classList.add("active");
 
-// ---------- STORAGE ----------
+        }
 
-function getData(key){
+    });
 
-return JSON.parse(localStorage.getItem(key))||[];
+    /* ==========================
+       HEADER SHADOW
+    ========================== */
 
-}
+    const header = document.querySelector(".header");
 
-function saveData(key,data){
+    window.addEventListener("scroll", () => {
 
-localStorage.setItem(key,JSON.stringify(data));
+        if (window.scrollY > 40) {
 
-}
+            header.style.boxShadow = "0 10px 30px rgba(0,0,0,.08)";
 
-// ---------- MEMBER ----------
+        } else {
 
-function generateMemberID(){
+            header.style.boxShadow = "none";
 
-return "MEM-"+String(getData(STORAGE.members).length+1).padStart(6,"0");
+        }
 
-}
+    });
 
-function registerMember(member){
+    /* ==========================
+       COUNTER ANIMATION
+    ========================== */
 
-let members=getData(STORAGE.members);
+    const counters = document.querySelectorAll(".stat-card h2");
 
-member.memberId=generateMemberID();
+    const animateCounter = (counter) => {
 
-member.status="ACTIVE";
+        let value = counter.innerText.replace(/[^\d]/g, "");
 
-member.createdAt=new Date().toISOString();
+        if (!value) return;
 
-members.push(member);
+        value = Number(value);
 
-saveData(STORAGE.members,members);
+        let current = 0;
 
-return member;
+        const speed = Math.max(10, Math.floor(value / 50));
 
-}
+        const timer = setInterval(() => {
 
-function updateMember(member){
+            current += speed;
 
-let members=getData(STORAGE.members);
+            if (current >= value) {
 
-const index=members.findIndex(x=>x.memberId===member.memberId);
+                current = value;
 
-if(index>-1){
+                clearInterval(timer);
 
-members[index]=member;
+            }
 
-saveData(STORAGE.members,members);
+            if (counter.innerText.includes("₱")) {
 
-}
+                counter.innerText = "₱" + current;
 
-}
+            }
 
-// ---------- LOAN ----------
+            else if (counter.innerText.includes("%")) {
 
-function generateLoanReference(){
+                counter.innerText = current + "%";
 
-return "LN-"+String(getData(STORAGE.loans).length+1).padStart(6,"0");
+            }
 
-}
+            else if (counter.innerText.includes("+")) {
 
-function saveLoan(loan){
+                counter.innerText = current + "+";
 
-let loans=getData(STORAGE.loans);
+            }
 
-loan.reference=generateLoanReference();
+            else {
 
-loan.payment=0;
+                counter.innerText = current;
 
-loan.status="Pending";
+            }
 
-loan.createdAt=new Date().toISOString();
+        },20);
 
-loans.push(loan);
+    };
 
-saveData(STORAGE.loans,loans);
+    const observer = new IntersectionObserver(entries => {
 
-return loan;
+        entries.forEach(entry => {
 
-}
+            if (entry.isIntersecting) {
 
-function updateLoan(reference,data){
+                animateCounter(entry.target);
 
-let loans=getData(STORAGE.loans);
+                observer.unobserve(entry.target);
 
-const index=loans.findIndex(x=>x.reference===reference);
+            }
 
-if(index>-1){
+        });
 
-loans[index]={
+    });
 
-...loans[index],
+    counters.forEach(counter => observer.observe(counter));
 
-...data
+    /* ==========================
+       SCROLL REVEAL
+    ========================== */
 
-};
+    const revealItems = document.querySelectorAll(
 
-saveData(STORAGE.loans,loans);
+        ".card,.step,.benefit,.faq-item,.summary-card,.stat-card"
 
-}
+    );
 
-}
+    revealItems.forEach(item => {
 
-function getLoan(reference){
+        item.style.opacity = "0";
 
-return getData(STORAGE.loans).find(
+        item.style.transform = "translateY(40px)";
 
-x=>x.reference===reference
+    });
 
-);
+    const revealObserver = new IntersectionObserver(entries => {
 
-}
+        entries.forEach(entry => {
 
-// ---------- CONTRIBUTIONS ----------
+            if(entry.isIntersecting){
 
-function addContribution(record){
+                entry.target.style.transition="all .6s ease";
 
-let list=getData(STORAGE.contributions);
+                entry.target.style.opacity="1";
 
-list.push(record);
+                entry.target.style.transform="translateY(0)";
 
-saveData(STORAGE.contributions,list);
+            }
 
-}
+        });
 
-// ---------- REFERRALS ----------
+    },{
 
-function addReferral(record){
+        threshold:.15
 
-let list=getData(STORAGE.referrals);
+    });
 
-list.push(record);
+    revealItems.forEach(item=>{
 
-saveData(STORAGE.referrals,list);
+        revealObserver.observe(item);
 
-}
+    });
 
-// ---------- DASHBOARD ----------
+    /* ==========================
+       SMOOTH SCROLL
+    ========================== */
 
-function dashboardSummary(){
+    document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
 
-const members=getData(STORAGE.members);
+        anchor.addEventListener("click",function(e){
 
-const loans=getData(STORAGE.loans);
+            e.preventDefault();
 
-const contributions=getData(STORAGE.contributions);
+            const target=document.querySelector(this.getAttribute("href"));
 
-const referrals=getData(STORAGE.referrals);
+            if(target){
 
-return{
+                target.scrollIntoView({
 
-members:members.length,
+                    behavior:"smooth"
 
-borrowers:loans.length,
+                });
 
-pending:loans.filter(x=>x.status==="Pending").length,
+            }
 
-approved:loans.filter(x=>x.status==="Approved").length,
+        });
 
-released:loans.filter(x=>x.status==="Released").length,
+    });
 
-completed:loans.filter(x=>x.status==="Completed").length,
+});
 
-contributions:contributions.reduce((a,b)=>a+Number(b.amount||0),0),
-
-referrals:referrals.reduce((a,b)=>a+Number(b.amount||0),0)
-
-};
-
-}
+console.log("%cOAS MANAGEMENT SYSTEM V2","color:#2563EB;font-size:20px;font-weight:bold;");
+console.log("Homepage Loaded Successfully.");
