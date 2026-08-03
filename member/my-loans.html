@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -14,52 +15,109 @@
 
 <header>
 
-<h1>💰 My Loans</h1>
+<h1>💰 MY LOANS</h1>
+
+<p>OAS Management System</p>
+
+<nav>
+
+<a href="dashboard.html">Dashboard</a>
+<a href="profile.html">Profile</a>
+<a href="my-loans.html">My Loans</a>
+<a href="contributions.html">Contributions</a>
+<a href="referrals.html">Referrals</a>
+
+</nav>
 
 </header>
 
 <main class="container">
 
-<h2>Loan Summary</h2>
+<h2>My Loan Records</h2>
 
-<table border="1" width="100%">
+<table id="loanTable">
 
 <tr>
 
-<th>Loan Reference</th>
-
+<th>Reference</th>
 <th>Amount</th>
-
+<th>Paid</th>
+<th>Balance</th>
 <th>Status</th>
-
-</tr>
-
-<tr>
-
-<td>LN-000001</td>
-
-<td>₱5,000.00</td>
-
-<td>Pending</td>
 
 </tr>
 
 </table>
 
-<br>
-
-<a href="dashboard.html">
-
-<button>
-
-Back to Dashboard
-
-</button>
-
-</a>
-
 </main>
 
-</body>
+<script src="../js/app.js"></script>
 
+<script>
+
+const member=JSON.parse(localStorage.getItem(STORAGE.currentMember));
+
+if(!member){
+
+window.location="login.html";
+
+}
+
+const loans=getData(STORAGE.loans).filter(
+
+loan=>loan.fullName===member.fullName
+
+);
+
+const table=document.getElementById("loanTable");
+
+if(loans.length===0){
+
+table.innerHTML+=`
+
+<tr>
+
+<td colspan="5" align="center">
+
+No Loan Records Found
+
+</td>
+
+</tr>
+
+`;
+
+}else{
+
+loans.forEach(loan=>{
+
+const paid=Number(loan.payment||0);
+
+const balance=Number(loan.amount)-paid;
+
+table.innerHTML+=`
+
+<tr>
+
+<td>${loan.reference}</td>
+
+<td>₱${Number(loan.amount).toFixed(2)}</td>
+
+<td>₱${paid.toFixed(2)}</td>
+
+<td>₱${balance.toFixed(2)}</td>
+
+<td>${loan.status}</td>
+
+</tr>
+
+`;
+
+});
+
+}
+
+</script>
+
+</body>
 </html>
