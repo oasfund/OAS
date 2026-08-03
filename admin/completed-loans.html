@@ -15,7 +15,19 @@
 
 <header>
 
-<h1>✅ Completed Loans</h1>
+<h1>✅ COMPLETED LOANS</h1>
+
+<nav>
+
+<a href="dashboard.html">Dashboard</a>
+<a href="members.html">Members</a>
+<a href="borrowers.html">Borrowers</a>
+<a href="loans.html">Loans</a>
+<a href="releases.html">Releases</a>
+<a href="collections.html">Collections</a>
+<a href="reports.html">Reports</a>
+
+</nav>
 
 </header>
 
@@ -23,18 +35,14 @@
 
 <h2>Fully Paid Loans</h2>
 
-<table border="1" width="100%" id="completedTable">
+<table id="completedTable">
 
 <tr>
 
 <th>Reference</th>
-
 <th>Borrower</th>
-
 <th>Loan Amount</th>
-
-<th>Total Payment</th>
-
+<th>Total Paid</th>
 <th>Status</th>
 
 </tr>
@@ -53,29 +61,9 @@ Back to Dashboard
 
 <script>
 
-let loans=JSON.parse(localStorage.getItem("oas_loans"))||[];
+const loans=JSON.parse(localStorage.getItem("oas_loans"))||[];
 
 const table=document.getElementById("completedTable");
-
-function load(){
-
-table.innerHTML=`
-
-<tr>
-
-<th>Reference</th>
-
-<th>Borrower</th>
-
-<th>Loan Amount</th>
-
-<th>Total Payment</th>
-
-<th>Status</th>
-
-</tr>
-
-`;
 
 const completed=loans.filter(x=>x.status==="Completed");
 
@@ -95,9 +83,7 @@ No Completed Loans
 
 `;
 
-return;
-
-}
+}else{
 
 completed.forEach(loan=>{
 
@@ -109,9 +95,9 @@ table.innerHTML+=`
 
 <td>${loan.fullName}</td>
 
-<td>₱${loan.amount}</td>
+<td>₱${Number(loan.amount).toFixed(2)}</td>
 
-<td>₱${loan.payment||0}</td>
+<td>₱${Number(loan.payment||0).toFixed(2)}</td>
 
 <td>${loan.status}</td>
 
@@ -122,8 +108,6 @@ table.innerHTML+=`
 });
 
 }
-
-load();
 
 </script>
 
