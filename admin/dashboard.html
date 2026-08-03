@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -26,6 +27,9 @@
 <a href="loans.html">Loans</a>
 <a href="releases.html">Releases</a>
 <a href="collections.html">Collections</a>
+<a href="completed-loans.html">Completed</a>
+<a href="contributions.html">Contributions</a>
+<a href="referrals.html">Referrals</a>
 <a href="reports.html">Reports</a>
 <a href="settings.html">Settings</a>
 
@@ -35,54 +39,48 @@
 
 <main class="container">
 
+<h2>Executive Summary</h2>
+
 <div class="features">
 
 <div class="card">
-
 <h3>Total Members</h3>
-
 <h1 id="members">0</h1>
-
 </div>
 
 <div class="card">
-
 <h3>Total Borrowers</h3>
-
 <h1 id="borrowers">0</h1>
-
 </div>
 
 <div class="card">
-
-<h3>Loan Applications</h3>
-
+<h3>Total Applications</h3>
 <h1 id="applications">0</h1>
-
 </div>
 
 <div class="card">
+<h3>Pending</h3>
+<h1 id="pending">0</h1>
+</div>
 
-<h3>Released Loans</h3>
+<div class="card">
+<h3>Approved</h3>
+<h1 id="approved">0</h1>
+</div>
 
+<div class="card">
+<h3>Released</h3>
 <h1 id="released">0</h1>
-
 </div>
 
 <div class="card">
-
-<h3>Completed Loans</h3>
-
+<h3>Completed</h3>
 <h1 id="completed">0</h1>
-
 </div>
 
 <div class="card">
-
 <h3>Total Collections</h3>
-
 <h1 id="collections">₱0.00</h1>
-
 </div>
 
 </div>
@@ -92,28 +90,25 @@
 <script>
 
 const members=JSON.parse(localStorage.getItem("oas_members"))||[];
-
 const loans=JSON.parse(localStorage.getItem("oas_loans"))||[];
 
-document.getElementById("members").innerHTML=members.length;
+document.getElementById("members").textContent=members.length;
+document.getElementById("borrowers").textContent=loans.length;
+document.getElementById("applications").textContent=loans.length;
+document.getElementById("pending").textContent=loans.filter(x=>x.status==="Pending").length;
+document.getElementById("approved").textContent=loans.filter(x=>x.status==="Approved").length;
+document.getElementById("released").textContent=loans.filter(x=>x.status==="Released").length;
+document.getElementById("completed").textContent=loans.filter(x=>x.status==="Completed").length;
 
-document.getElementById("borrowers").innerHTML=loans.length;
+let totalCollections=0;
 
-document.getElementById("applications").innerHTML=loans.length;
+loans.forEach(loan=>{
 
-document.getElementById("released").innerHTML=loans.filter(x=>x.status==="Released").length;
-
-document.getElementById("completed").innerHTML=loans.filter(x=>x.status==="Completed").length;
-
-let total=0;
-
-loans.forEach(x=>{
-
-total+=Number(x.payment||0);
+totalCollections+=Number(loan.payment||0);
 
 });
 
-document.getElementById("collections").innerHTML="₱"+total.toFixed(2);
+document.getElementById("collections").textContent="₱"+totalCollections.toFixed(2);
 
 </script>
 
