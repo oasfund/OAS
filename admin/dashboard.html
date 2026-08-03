@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Admin Dashboard</title>
 
 <link rel="stylesheet" href="../css/style.css">
@@ -16,110 +13,53 @@
 
 <header>
 
-<h1>🏦 OAS Management System</h1>
-
-<nav>
-
-<a href="dashboard.html">Dashboard</a>
-
-<a href="#">Members</a>
-
-<a href="#">Loans</a>
-
-<a href="#">Contributions</a>
-
-<a href="#">Referrals</a>
-
-<a href="#">Reports</a>
-
-<a href="#">Settings</a>
-
-</nav>
+<h1>🛡 OAS Admin Dashboard</h1>
 
 </header>
 
-<main>
+<main class="container">
 
-<h2>Administrator Dashboard</h2>
+<h2>System Summary</h2>
 
-<h3>System Overview</h3>
+<div class="card">
+<h3>Total Members</h3>
+<p id="members">0</p>
+</div>
 
-<table border="1" width="100%">
+<div class="card">
+<h3>Total Loan Applications</h3>
+<p id="loans">0</p>
+</div>
 
-<tr>
+<div class="card">
+<h3>Total Contributions</h3>
+<p>₱0.00</p>
+</div>
 
-<th>Module</th>
-
-<th>Total</th>
-
-</tr>
-
-<tr>
-
-<td>Total Members</td>
-
-<td>0</td>
-
-</tr>
-
-<tr>
-
-<td>Active Loans</td>
-
-<td>0</td>
-
-</tr>
-
-<tr>
-
-<td>Weekly Contributions</td>
-
-<td>₱0.00</td>
-
-</tr>
-
-<tr>
-
-<td>Referral Incentives</td>
-
-<td>₱0.00</td>
-
-</tr>
-
-</table>
+<div class="card">
+<h3>Total Referral Incentives</h3>
+<p>₱0.00</p>
+</div>
 
 <br>
 
-<h3>Quick Access</h3>
+<button onclick="location.href='../index.html'">
 
-<ul>
+Back to Home
 
-<li><a href="#">Member Management</a></li>
-
-<li><a href="#">Loan Management</a></li>
-
-<li><a href="#">Contribution Management</a></li>
-
-<li><a href="#">Referral Management</a></li>
-
-<li><a href="#">Reports</a></li>
-
-<li><a href="#">System Settings</a></li>
-
-</ul>
+</button>
 
 </main>
 
-<footer>
+<script>
 
-<p>
+const members=JSON.parse(localStorage.getItem("oas_members"))||[];
 
-© 2026 OAS Management System
+document.getElementById("members").innerHTML=members.length;
 
-</p>
+document.getElementById("loans").innerHTML="0";
 
-</footer>
+</script>
 
 </body>
-
 </html>
