@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Completed Loans</title>
+
+<link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+
+<header>
+
+<h1>✅ Completed Loans</h1>
+
+</header>
+
+<main class="container">
+
+<h2>Fully Paid Loans</h2>
+
+<table border="1" width="100%" id="completedTable">
+
+<tr>
+
+<th>Reference</th>
+
+<th>Borrower</th>
+
+<th>Loan Amount</th>
+
+<th>Total Payment</th>
+
+<th>Status</th>
+
+</tr>
+
+</table>
+
+<br>
+
+<button onclick="window.location='dashboard.html'">
+
+Back to Dashboard
+
+</button>
+
+</main>
+
+<script>
+
+let loans=JSON.parse(localStorage.getItem("oas_loans"))||[];
+
+const table=document.getElementById("completedTable");
+
+function load(){
+
+table.innerHTML=`
+
+<tr>
+
+<th>Reference</th>
+
+<th>Borrower</th>
+
+<th>Loan Amount</th>
+
+<th>Total Payment</th>
+
+<th>Status</th>
+
+</tr>
+
+`;
+
+const completed=loans.filter(x=>x.status==="Completed");
+
+if(completed.length===0){
+
+table.innerHTML+=`
+
+<tr>
+
+<td colspan="5" align="center">
+
+No Completed Loans
+
+</td>
+
+</tr>
+
+`;
+
+return;
+
+}
+
+completed.forEach(loan=>{
+
+table.innerHTML+=`
+
+<tr>
+
+<td>${loan.reference}</td>
+
+<td>${loan.fullName}</td>
+
+<td>₱${loan.amount}</td>
+
+<td>₱${loan.payment||0}</td>
+
+<td>${loan.status}</td>
+
+</tr>
+
+`;
+
+});
+
+}
+
+load();
+
+</script>
+
+</body>
+
+</html>
