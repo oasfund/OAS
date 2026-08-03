@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Member Management</title>
+
+<link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+
+<header>
+
+<h1>👥 Member Management</h1>
+
+</header>
+
+<main class="container">
+
+<h2>Registered Members</h2>
+
+<table border="1" width="100%" id="memberTable">
+
+<tr>
+
+<th>Member ID</th>
+
+<th>Full Name</th>
+
+<th>Username</th>
+
+<th>Mobile</th>
+
+<th>Email</th>
+
+</tr>
+
+</table>
+
+<br>
+
+<button onclick="window.location='dashboard.html'">
+
+Back to Dashboard
+
+</button>
+
+</main>
+
+<script>
+
+const members = JSON.parse(localStorage.getItem("oas_members")) || [];
+
+const table = document.getElementById("memberTable");
+
+members.forEach(member=>{
+
+table.innerHTML += `
+
+<tr>
+
+<td>${member.memberId}</td>
+
+<td>${member.fullName}</td>
+
+<td>${member.username}</td>
+
+<td>${member.mobile}</td>
+
+<td>${member.email}</td>
+
+</tr>
+
+`;
+
+});
+
+</script>
+
+</body>
+</html>
