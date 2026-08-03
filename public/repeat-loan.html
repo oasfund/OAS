@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Repeat Loan Application</title>
 
 <link rel="stylesheet" href="../css/style.css">
@@ -13,53 +14,56 @@
 
 <header>
 
-<h1>🏦 OAS Management System</h1>
+<h1>🔄 Repeat Loan Application</h1>
 
-<nav>
-<a href="../index.html">Home</a>
-<a href="about.html">About</a>
-<a href="contact.html">Contact</a>
-<a href="become-member.html">Become a Member</a>
-<a href="new-loan.html">New Loan</a>
-<a href="repeat-loan.html">Repeat Loan</a>
-<a href="loan-status.html">Loan Status</a>
-</nav>
+<p>For Existing Non-Member Borrowers</p>
 
 </header>
 
-<main>
+<main class="container">
 
-<h2>Repeat Loan Application</h2>
+<form id="repeatLoanForm">
 
-<p>
-This application is intended for previous non-member borrowers who have already completed at least one loan with OAS.
-</p>
+<label>Previous Loan Reference No.</label>
+<input type="text" placeholder="Loan Reference Number" required>
 
-<h3>Requirements</h3>
+<label>Full Name</label>
+<input type="text" placeholder="Enter Full Name" required>
 
-<ul>
-<li>Previous Loan Reference Number</li>
-<li>Full Name</li>
-<li>Registered Mobile Number</li>
-<li>Valid Government ID</li>
-<li>Updated Address (if applicable)</li>
-</ul>
+<label>Mobile Number</label>
+<input type="tel" placeholder="09XXXXXXXXX" required>
 
-<p>
+<label>New Loan Amount</label>
+<input type="number" placeholder="Loan Amount" required>
 
-<a href="../loan/repeat-application.html">
-Proceed to Repeat Loan Application
-</a>
+<label>Loan Purpose</label>
+<textarea placeholder="Purpose of Loan" required></textarea>
 
-</p>
+<br><br>
+
+<button type="submit">
+
+Submit Repeat Loan
+
+</button>
+
+</form>
 
 </main>
 
-<footer>
+<script>
 
-<p>© 2026 OAS Management System</p>
+document.getElementById("repeatLoanForm").addEventListener("submit",function(e){
 
-</footer>
+e.preventDefault();
+
+alert("Repeat Loan Application Submitted Successfully!");
+
+this.reset();
+
+});
+
+</script>
 
 </body>
 </html>
