@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>System Settings</title>
+
+<link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+
+<header>
+
+<h1>⚙️ OAS System Settings</h1>
+
+</header>
+
+<main class="container">
+
+<h2>System Information</h2>
+
+<table border="1" width="100%">
+
+<tr>
+
+<td><strong>System Name</strong></td>
+
+<td>OAS Management System</td>
+
+</tr>
+
+<tr>
+
+<td><strong>Version</strong></td>
+
+<td>Version 1.0</td>
+
+</tr>
+
+<tr>
+
+<td><strong>Administrator</strong></td>
+
+<td>OAS Administrator</td>
+
+</tr>
+
+<tr>
+
+<td><strong>Storage</strong></td>
+
+<td>Browser Local Storage</td>
+
+</tr>
+
+<tr>
+
+<td><strong>Status</strong></td>
+
+<td>ACTIVE</td>
+
+</tr>
+
+</table>
+
+<br>
+
+<button onclick="localStorage.clear();alert('All Local Data Cleared');location.reload();">
+
+Clear Local Storage
+
+</button>
+
+<br><br>
+
+<button onclick="window.location='dashboard.html'">
+
+Back to Dashboard
+
+</button>
+
+</main>
+
+</body>
+
+</html>
