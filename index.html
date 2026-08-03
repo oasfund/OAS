@@ -1,681 +1,1331 @@
+<!-- ===========================================================
+FILE: index.html
+PROJECT: OAS MANAGEMENT SYSTEM V2
+PART: 1 / 6
+STATUS: FOUNDATION
+=========================================================== -->
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>OAS Management System</title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>OAS Management System V2</title>
 
-<link rel="stylesheet" href="css/style.css">
+    <meta name="description"
+        content="Open Amount Sinking Fund Management System">
+
+    <meta name="theme-color"
+        content="#0f172a">
+
+    <!-- Fonts -->
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet"
+        href="assets/css/style.css">
+
 </head>
 
 <body>
 
-<header class="header">
+    <!-- =========================
+         APP LOADER
+    ========================== -->
 
-<div class="container nav-container">
+    <div id="appLoader">
 
-<div class="logo">
+        <div class="loader-card">
 
-<div class="logo-icon">OAS</div>
+            <div class="loader-logo">
 
-<div>
+                <i class="fa-solid fa-coins"></i>
 
-<h2>OAS Management System</h2>
+            </div>
 
-<span>Open Amount Sinking Fund</span>
-
-</div>
-
-</div>
-
-<nav>
-
-<a class="active" href="index.html">Home</a>
-
-<a href="public/about.html">About</a>
-
-<a href="public/contact.html">Contact</a>
-
-<a href="public/become-member.html">Membership</a>
-
-<a href="public/new-loan.html">Loans</a>
-
-<a href="member/login.html" class="login-btn">
-
-Login
-
-</a>
-
-</nav>
-
-</div>
-
-</header>
-
-<section class="hero">
-
-<div class="container hero-grid">
-
-<div class="hero-left">
-
-<span class="badge">
-
-Trusted Financial Community
-
-</span>
-
-<h1>
-
-Grow Together with
-
-<span>Open Amount Sinking Fund</span>
-
-</h1>
-
-<p>
-
-Helping members through disciplined saving,
-responsible lending,
-and transparent financial management.
-
-</p>
-
-<div class="hero-buttons">
-
-<a href="public/become-member.html" class="btn">
-
-Become a Member
-
-</a>
-
-<a href="public/new-loan.html" class="btn-outline">
-
-Apply Loan
-
-</a>
-
-</div>
-
-<div class="hero-features">
-
-<div>
-
-<strong>✔ Secure</strong>
-
-<small>Protected Member Records</small>
-
-</div>
-
-<div>
-
-<strong>✔ Transparent</strong>
-
-<small>Clear Loan Process</small>
-
-</div>
-
-<div>
-
-<strong>✔ Digital</strong>
-
-<small>Anywhere Access</small>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="hero-right">
-
-<div class="summary-card">
-
-<h3>OAS Overview</h3>
-
-<div class="summary-grid">
-
-<div>
-
-<h2>28</h2>
-
-<p>Members</p>
-
-</div>
-
-<div>
-
-<h2>3</h2>
-
-<p>Loan Types</p>
-
-</div>
-
-<div>
-
-<h2>₱20</h2>
-
-<p>Weekly Minimum</p>
-
-</div>
-
-<div>
-
-<h2>100%</h2>
-
-<p>Responsive</p>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="stats">
-
-<div class="container stats-grid">
-
-<div class="stat-card">
-
-<h2>28</h2>
-
-<p>Active Members</p>
-
-</div>
-
-<div class="stat-card">
-
-<h2>150+</h2>
-
-<p>Loans Processed</p>
-
-</div>
-
-<div class="stat-card">
-
-<h2>₱20</h2>
-
-<p>Weekly Contribution</p>
-
-</div>
-
-<div class="stat-card">
-
-<h2>24/7</h2>
-
-<p>Online Access</p>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<div class="container">
-
-<h2 class="section-title">
-
-Loan Products
-
-</h2>
-
-<div class="cards">        <article class="card">
-
-            <div class="card-icon">💰</div>
-
-            <h3>Microloan</h3>
+            <h1>
+                OAS MANAGEMENT SYSTEM
+            </h1>
 
             <p>
-                Quick financial assistance for immediate needs.
+                Version 2
             </p>
 
-            <ul>
-                <li>₱1,000 - ₱2,000</li>
-                <li>7 Days</li>
-                <li>10% Interest</li>
-            </ul>
+            <div class="loader-bar">
 
-            <a href="public/new-loan.html" class="btn">
-                Apply Now
-            </a>
+                <div class="loader-progress"></div>
 
-        </article>
+            </div>
 
-        <article class="card featured">
-
-            <span class="popular">
-                MOST POPULAR
-            </span>
-
-            <div class="card-icon">🏦</div>
-
-            <h3>Standard Loan</h3>
-
-            <p>
-                Ideal for members needing a higher loan amount.
-            </p>
-
-            <ul>
-                <li>₱3,000 - ₱4,000</li>
-                <li>2 Weeks</li>
-                <li>15% Interest</li>
-            </ul>
-
-            <a href="public/new-loan.html" class="btn">
-                Apply Now
-            </a>
-
-        </article>
-
-        <article class="card">
-
-            <div class="card-icon">📈</div>
-
-            <h3>Extended Loan</h3>
-
-            <p>
-                Flexible financing with weekly repayments.
-            </p>
-
-            <ul>
-                <li>₱5,000 - ₱10,000</li>
-                <li>4 Weeks</li>
-                <li>15% Interest</li>
-            </ul>
-
-            <a href="public/new-loan.html" class="btn">
-                Apply Now
-            </a>
-
-        </article>
+        </div>
 
     </div>
 
-</div>
+    <!-- =========================
+         APPLICATION
+    ========================== -->
 
-</section>
+    <div id="app">
 
-<section class="how-it-works">
+        <!-- =========================
+             SIDEBAR
+        ========================== -->
 
-<div class="container">
+        <aside id="sidebar">
 
-<h2 class="section-title">
+            <div class="brand">
 
-How It Works
+                <div class="brand-icon">
 
-</h2>
+                    <i class="fa-solid fa-landmark"></i>
 
-<div class="steps">
+                </div>
 
-<div class="step">
+                <div class="brand-text">
 
-<div class="step-number">
+                    <h2>OAS V2</h2>
 
-1
+                    <small>Management System</small>
 
-</div>
+                </div>
 
-<h3>
+            </div>
 
-Register
+            <nav>
 
-</h3>
+                <ul>
 
-<p>
+                    <li class="active">
+                        <a href="#">
+                            <i class="fa-solid fa-chart-line"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
 
-Create your OAS Member Account.
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-users"></i>
+                            <span>Members</span>
+                        </a>
+                    </li>
 
-</p>
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-money-bill-transfer"></i>
+                            <span>Contributions</span>
+                        </a>
+                    </li>
 
-</div>
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-hand-holding-dollar"></i>
+                            <span>Loans</span>
+                        </a>
+                    </li>
 
-<div class="step">
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-calendar-days"></i>
+                            <span>Due Dates</span>
+                        </a>
+                    </li>
 
-<div class="step-number">
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-file-signature"></i>
+                            <span>Applications</span>
+                        </a>
+                    </li>
 
-2
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-chart-pie"></i>
+                            <span>Reports</span>
+                        </a>
+                    </li>
 
-</div>
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-gear"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
 
-<h3>
+                </ul>
 
-Submit Requirements
+            </nav>
 
-</h3>
+        </aside>
 
-<p>
+        <!-- =========================
+             MAIN
+        ========================== -->
 
-Upload your required documents.
+        <main id="main">
 
-</p>
+            <!-- HEADER -->
 
-</div>
+            <header id="topbar">
 
-<div class="step">
+                <div class="left">
 
-<div class="step-number">
+                    <button id="menuButton">
 
-3
+                        <i class="fa-solid fa-bars"></i>
 
-</div>
+                    </button>
 
-<h3>
+                    <h1>
 
-Approval
+                        Executive Dashboard
 
-</h3>
+                    </h1>
 
-<p>
+                </div>
 
-Application review and verification.
+                <div class="right">
 
-</p>
+                    <button>
 
-</div>
+                        <i class="fa-regular fa-bell"></i>
 
-<div class="step">
+                    </button>
 
-<div class="step-number">
+                    <button>
 
-4
+                        <i class="fa-solid fa-moon"></i>
 
-</div>
+                    </button>
 
-<h3>
+                    <div class="profile">
 
-Receive Funds
+                        <div class="avatar">
 
-</h3>
+                            A
 
-<p>
+                        </div>
 
-Loan proceeds released after approval.
+                        <div>
 
-</p>
+                            <strong>Administrator</strong>
 
-</div>
+                            <small>System Owner</small>
 
-</div>
+                        </div>
 
-</div>
+                    </div>
 
-</section>
+                </div>
 
-<section class="benefits">
+            </header>
 
-<div class="container">
+            <!-- CONTENT -->
 
-<h2 class="section-title">
+            <section id="content">
 
-Why Choose OAS?
+                <!-- KPI CARDS -->
 
-</h2>
+                <section class="dashboard-cards">
 
-<div class="benefit-grid">
+                    <article class="card">
 
-<div class="benefit">
+                        <span>Total Members</span>
 
-✅
+                        <h2 id="totalMembers">0</h2>
 
-<h3>
+                    </article>
 
-Fast Processing
+                    <article class="card">
 
-</h3>
+                        <span>Total Contributions</span>
 
-</div>
+                        <h2 id="totalContribution">
+                            ₱0
+                        </h2>
 
-<div class="benefit">
+                    </article>
 
-🔒
+                    <article class="card">
 
-<h3>
+                        <span>Active Loans</span>
 
-Secure Records
+                        <h2 id="activeLoans">
+                            0
+                        </h2>
 
-</h3>
+                    </article>
 
-</div>
+                    <article class="card">
 
-<div class="benefit">
+                        <span>Fund Balance</span>
 
-📱
+                        <h2 id="fundBalance">
+                            ₱0
+                        </h2>
 
-<h3>
+                    </article>
 
-100% Digital
+                </section>
 
-</h3>
+                <!-- ROW -->
 
-</div>
+                <section class="dashboard-grid">
 
-<div class="benefit">
+                    <div class="panel">
 
-🤝
+                        <div class="panel-header">
 
-<h3>
+                            <h3>
 
-Community Based
+                                Weekly Collections
 
-</h3>
+                            </h3>
 
-</div>
+                        </div>
 
-<div class="benefit">
+                        <div id="collectionChart"></div>
 
-📊
+                    </div>
 
-<h3>
+                    <div class="panel">
 
-Transparent System
+                        <div class="panel-header">
 
-</h3>
+                            <h3>
 
-</div>
+                                Loan Status
 
-</div>
+                            </h3>
 
-</div>
+                        </div>
 
-</section><section class="faq">
+                        <div id="loanChart"></div>
 
-<div class="container">
+                    </div>
 
-<h2 class="section-title">
+                </section>
 
-Frequently Asked Questions
+                <!-- TABLE -->
 
-</h2>
+                <section class="panel">
 
-<div class="faq-item">
+                    <div class="panel-header">
 
-<h3>Who can become an OAS Member?</h3>
+                        <h3>
 
-<p>
-Anyone who meets the membership requirements and agrees to the OAS policies.
-</p>
+                            Recent Transactions
 
-</div>
+                        </h3>
 
-<div class="faq-item">
+                    </div>
 
-<h3>Can I apply online?</h3>
+                    <div class="table-responsive">
 
-<p>
-Yes. Membership and loan applications can be submitted through the OAS Management System.
-</p>
+                        <table>
 
-</div>
+                            <thead>
 
-<div class="faq-item">
+                                <tr>
 
-<h3>How do I check my application?</h3>
+                                    <th>Date</th>
+                                    <th>Reference</th>
+                                    <th>Member</th>
+                                    <th>Type</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
 
-<p>
-Use the Loan Status page to monitor your application progress.
-</p>
+                                </tr>
 
-</div>
+                            </thead>
 
-<div class="faq-item">
+                            <tbody id="recentTransactions">
 
-<h3>How do I contact OAS?</h3>
+                            </tbody>
 
-<p>
-Visit the Contact page for official communication channels.
-</p>
+                        </table>
 
-</div>
+                    </div>
 
-</div>
+                </section>
 
-</section>
+            </section>
 
-<section class="cta">
+        </main>
 
-<div class="container">
+    </div>
 
-<h2>
+    <!-- Scripts -->
 
-Ready to Join OAS?
+    <script src="assets/js/app.js"></script>
 
-</h2>
+</body>
 
-<p>
+</html>            <!-- ==========================================
+                 MEMBER SUMMARY
+            =========================================== -->
 
-Start your financial journey today.
+            <section class="dashboard-grid">
 
-</p>
+                <div class="panel">
 
-<div class="hero-buttons">
+                    <div class="panel-header">
 
-<a href="public/become-member.html" class="btn">
+                        <h3>
+                            Member Overview
+                        </h3>
 
-Become a Member
+                        <button class="btn-primary">
+                            <i class="fa-solid fa-user-plus"></i>
+                            Add Member
+                        </button>
 
-</a>
+                    </div>
 
-<a href="public/new-loan.html" class="btn-outline">
+                    <div class="member-summary">
 
-Apply Loan
+                        <div class="summary-box">
 
-</a>
+                            <span>Active Members</span>
 
-</div>
+                            <h2 id="activeMembers">
+                                0
+                            </h2>
 
-</div>
+                        </div>
 
-</section>
+                        <div class="summary-box">
 
-<footer>
+                            <span>Inactive Members</span>
 
-<div class="container footer-grid">
+                            <h2 id="inactiveMembers">
+                                0
+                            </h2>
 
-<div>
+                        </div>
 
-<h3>
+                        <div class="summary-box">
 
-OAS Management System
+                            <span>Borrowers</span>
 
-</h3>
+                            <h2 id="borrowers">
+                                0
+                            </h2>
 
-<p>
+                        </div>
 
-Open Amount Sinking Fund
+                        <div class="summary-box">
 
-Helping Members Build a Better Financial Future.
+                            <span>Delinquent</span>
 
-</p>
+                            <h2 id="delinquentMembers">
+                                0
+                            </h2>
 
-</div>
+                        </div>
 
-<div>
+                    </div>
 
-<h4>
+                </div>
 
-Quick Links
+                <div class="panel">
 
-</h4>
+                    <div class="panel-header">
 
-<ul>
+                        <h3>
+                            Collection Progress
+                        </h3>
 
-<li><a href="index.html">Home</a></li>
+                    </div>
 
-<li><a href="public/about.html">About</a></li>
+                    <div class="progress-wrapper">
 
-<li><a href="public/contact.html">Contact</a></li>
+                        <div class="progress-info">
 
-<li><a href="public/become-member.html">Membership</a></li>
+                            <span>
+                                Weekly Target
+                            </span>
 
-</ul>
+                            <strong id="weeklyTarget">
+                                ₱0
+                            </strong>
 
-</div>
+                        </div>
 
-<div>
+                        <div class="progress">
 
-<h4>
+                            <div
+                                class="progress-fill"
+                                style="width:0%;">
 
-Loan Services
+                            </div>
 
-</h4>
+                        </div>
 
-<ul>
+                        <div class="progress-footer">
 
-<li><a href="public/new-loan.html">New Loan</a></li>
+                            <span id="collectionPercent">
 
-<li><a href="public/repeat-loan.html">Repeat Loan</a></li>
+                                0%
 
-<li><a href="public/loan-status.html">Loan Status</a></li>
+                            </span>
 
-</ul>
+                        </div>
 
-</div>
+                    </div>
 
-<div>
+                </div>
 
-<h4>
+            </section>
 
-Portal
+            <!-- ==========================================
+                 QUICK ACTIONS
+            =========================================== -->
 
-</h4>
+            <section class="panel">
 
-<ul>
+                <div class="panel-header">
 
-<li><a href="member/login.html">Member Login</a></li>
+                    <h3>
 
-<li><a href="admin/login.html">Admin Login</a></li>
+                        Quick Actions
 
-</ul>
+                    </h3>
 
-</div>
+                </div>
 
-</div>
+                <div class="quick-actions">
 
-<div class="copyright">
+                    <button>
 
-<p>
+                        <i class="fa-solid fa-user-plus"></i>
 
-© 2026 OAS Management System • All Rights Reserved
+                        New Member
 
-</p>
+                    </button>
 
-</div>
+                    <button>
 
-</footer>
+                        <i class="fa-solid fa-wallet"></i>
 
-<script src="js/app.js"></script>
+                        Contribution
+
+                    </button>
+
+                    <button>
+
+                        <i class="fa-solid fa-hand-holding-dollar"></i>
+
+                        New Loan
+
+                    </button>
+
+                    <button>
+
+                        <i class="fa-solid fa-money-check-dollar"></i>
+
+                        Loan Payment
+
+                    </button>
+
+                    <button>
+
+                        <i class="fa-solid fa-rotate"></i>
+
+                        Restructure
+
+                    </button>
+
+                    <button>
+
+                        <i class="fa-solid fa-file-arrow-down"></i>
+
+                        Export
+
+                    </button>
+
+                </div>
+
+            </section>
+
+            <!-- ==========================================
+                 LOAN PORTFOLIO
+            =========================================== -->
+
+            <section class="dashboard-grid">
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <h3>
+
+                            Loan Portfolio
+
+                        </h3>
+
+                    </div>
+
+                    <div id="portfolioChart">
+
+                    </div>
+
+                </div>
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <h3>
+
+                            Payment Performance
+
+                        </h3>
+
+                    </div>
+
+                    <div id="paymentChart">
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- ==========================================
+                 RECENT APPLICATIONS
+            =========================================== -->
+
+            <section class="panel">
+
+                <div class="panel-header">
+
+                    <h3>
+
+                        Latest Loan Applications
+
+                    </h3>
+
+                </div>
+
+                <div class="table-responsive">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Application No.</th>
+                                <th>Borrower</th>
+                                <th>Loan Type</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Action</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="latestApplications">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>            <!-- ==========================================
+                 DUE DATE MONITOR
+            =========================================== -->
+
+            <section class="dashboard-grid">
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <h3>
+
+                            Upcoming Due Dates
+
+                        </h3>
+
+                    </div>
+
+                    <div class="table-responsive">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Due Date</th>
+                                    <th>Member</th>
+                                    <th>Reference</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody id="upcomingDueDates">
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <h3>
+
+                            Delinquency Summary
+
+                        </h3>
+
+                    </div>
+
+                    <div class="summary-list">
+
+                        <div class="summary-item">
+                            <span>Current</span>
+                            <strong id="currentLoans">0</strong>
+                        </div>
+
+                        <div class="summary-item">
+                            <span>Past Due</span>
+                            <strong id="pastDueLoans">0</strong>
+                        </div>
+
+                        <div class="summary-item">
+                            <span>Restructured</span>
+                            <strong id="restructuredLoans">0</strong>
+                        </div>
+
+                        <div class="summary-item">
+                            <span>Defaulted</span>
+                            <strong id="defaultLoans">0</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- ==========================================
+                 FINANCIAL SUMMARY
+            =========================================== -->
+
+            <section class="dashboard-grid">
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <h3>
+
+                            Financial Overview
+
+                        </h3>
+
+                    </div>
+
+                    <div class="financial-grid">
+
+                        <div class="finance-card">
+                            <span>Total Released</span>
+                            <h3 id="releasedLoans">₱0</h3>
+                        </div>
+
+                        <div class="finance-card">
+                            <span>Total Collected</span>
+                            <h3 id="collectedLoans">₱0</h3>
+                        </div>
+
+                        <div class="finance-card">
+                            <span>Total Interest</span>
+                            <h3 id="interestIncome">₱0</h3>
+                        </div>
+
+                        <div class="finance-card">
+                            <span>Penalty Income</span>
+                            <h3 id="penaltyIncome">₱0</h3>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <h3>
+
+                            Cash Flow
+
+                        </h3>
+
+                    </div>
+
+                    <div id="cashFlowChart">
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- ==========================================
+                 ACTIVITY LOG
+            =========================================== -->
+
+            <section class="panel">
+
+                <div class="panel-header">
+
+                    <h3>
+
+                        Activity Log
+
+                    </h3>
+
+                </div>
+
+                <div class="activity-list" id="activityLog">
+
+                </div>
+
+            </section>            <!-- ==========================================
+                 MEMBER RANKINGS
+            =========================================== -->
+
+            <section class="dashboard-grid">
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <h3>
+
+                            Top Contributors
+
+                        </h3>
+
+                    </div>
+
+                    <div class="table-responsive">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>#</th>
+                                    <th>Member</th>
+                                    <th>Total Contribution</th>
+                                    <th>Status</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody id="topContributors">
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <h3>
+
+                            Top Borrowers
+
+                        </h3>
+
+                    </div>
+
+                    <div class="table-responsive">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>#</th>
+                                    <th>Member</th>
+                                    <th>Total Loan</th>
+                                    <th>Balance</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody id="topBorrowers">
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- ==========================================
+                 SYSTEM NOTIFICATIONS
+            =========================================== -->
+
+            <section class="panel">
+
+                <div class="panel-header">
+
+                    <h3>
+
+                        Notifications
+
+                    </h3>
+
+                </div>
+
+                <div id="notificationList"
+                     class="notification-list">
+
+                </div>
+
+            </section>
+
+            <!-- ==========================================
+                 EXECUTIVE ANALYTICS
+            =========================================== -->
+
+            <section class="dashboard-grid">
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <h3>
+
+                            Monthly Income
+
+                        </h3>
+
+                    </div>
+
+                    <div id="incomeChart">
+
+                    </div>
+
+                </div>
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <h3>
+
+                            Monthly Expenses
+
+                        </h3>
+
+                    </div>
+
+                    <div id="expenseChart">
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- ==========================================
+                 EXECUTIVE SUMMARY
+            =========================================== -->
+
+            <section class="panel">
+
+                <div class="panel-header">
+
+                    <h3>
+
+                        Executive Summary
+
+                    </h3>
+
+                </div>
+
+                <div class="executive-summary">
+
+                    <div class="summary-card">
+
+                        <label>Total Fund Assets</label>
+
+                        <h2 id="totalAssets">
+                            ₱0
+                        </h2>
+
+                    </div>
+
+                    <div class="summary-card">
+
+                        <label>Total Outstanding Balance</label>
+
+                        <h2 id="totalOutstanding">
+                            ₱0
+                        </h2>
+
+                    </div>
+
+                    <div class="summary-card">
+
+                        <label>Projected Profit</label>
+
+                        <h2 id="projectedProfit">
+                            ₱0
+                        </h2>
+
+                    </div>
+
+                    <div class="summary-card">
+
+                        <label>Net Fund Position</label>
+
+                        <h2 id="netFundPosition">
+                            ₱0
+                        </h2>
+
+                    </div>
+
+                </div>
+
+            </section>            <!-- ==========================================
+                 SYSTEM STATUS
+            =========================================== -->
+
+            <section class="dashboard-grid">
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <h3>
+
+                            System Status
+
+                        </h3>
+
+                    </div>
+
+                    <div class="status-grid">
+
+                        <div class="status-card">
+
+                            <span>Database</span>
+
+                            <strong id="dbStatus">
+
+                                Connected
+
+                            </strong>
+
+                        </div>
+
+                        <div class="status-card">
+
+                            <span>Authentication</span>
+
+                            <strong id="authStatus">
+
+                                Active
+
+                            </strong>
+
+                        </div>
+
+                        <div class="status-card">
+
+                            <span>Storage</span>
+
+                            <strong id="storageStatus">
+
+                                Online
+
+                            </strong>
+
+                        </div>
+
+                        <div class="status-card">
+
+                            <span>Backup</span>
+
+                            <strong id="backupStatus">
+
+                                Ready
+
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <h3>
+
+                            Live Statistics
+
+                        </h3>
+
+                    </div>
+
+                    <div class="statistics-grid">
+
+                        <div class="stat-box">
+
+                            <span>Today's Collections</span>
+
+                            <h3 id="todayCollection">
+
+                                ₱0
+
+                            </h3>
+
+                        </div>
+
+                        <div class="stat-box">
+
+                            <span>Today's Loans</span>
+
+                            <h3 id="todayLoans">
+
+                                ₱0
+
+                            </h3>
+
+                        </div>
+
+                        <div class="stat-box">
+
+                            <span>Today's Payments</span>
+
+                            <h3 id="todayPayments">
+
+                                ₱0
+
+                            </h3>
+
+                        </div>
+
+                        <div class="stat-box">
+
+                            <span>Pending Approval</span>
+
+                            <h3 id="pendingApproval">
+
+                                0
+
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- ==========================================
+                 FOOTER INFORMATION
+            =========================================== -->
+
+            <footer id="footer">
+
+                <div class="footer-left">
+
+                    <strong>
+
+                        OAS Management System V2
+
+                    </strong>
+
+                    <small>
+
+                        Open Amount Sinking Fund
+
+                    </small>
+
+                </div>
+
+                <div class="footer-right">
+
+                    <span>
+
+                        Version 2.0
+
+                    </span>
+
+                    <span>
+
+                        © 2026
+
+                    </span>
+
+                </div>
+
+            </footer>        </main>
+
+    </div>
+
+    <!-- ==========================================
+         GLOBAL MODAL
+    =========================================== -->
+
+    <div id="globalModal" class="modal hidden">
+
+        <div class="modal-overlay"></div>
+
+        <div class="modal-container">
+
+            <div class="modal-header">
+
+                <h2 id="modalTitle">
+
+                    Modal Title
+
+                </h2>
+
+                <button id="closeModal">
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </button>
+
+            </div>
+
+            <div id="modalBody"
+                 class="modal-body">
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ==========================================
+         TOAST NOTIFICATION
+    =========================================== -->
+
+    <div id="toastContainer">
+
+    </div>
+
+    <!-- ==========================================
+         LOADING OVERLAY
+    =========================================== -->
+
+    <div id="loadingOverlay"
+         class="hidden">
+
+        <div class="loading-card">
+
+            <div class="spinner"></div>
+
+            <p>
+
+                Please wait...
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- ==========================================
+         BACK TO TOP
+    =========================================== -->
+
+    <button id="backToTop">
+
+        <i class="fa-solid fa-arrow-up"></i>
+
+    </button>
+
+    <!-- ==========================================
+         JAVASCRIPT
+    =========================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="assets/js/config.js"></script>
+
+    <script src="assets/js/auth.js"></script>
+
+    <script src="assets/js/api.js"></script>
+
+    <script src="assets/js/ui.js"></script>
+
+    <script src="assets/js/dashboard.js"></script>
+
+    <script src="assets/js/members.js"></script>
+
+    <script src="assets/js/contributions.js"></script>
+
+    <script src="assets/js/loans.js"></script>
+
+    <script src="assets/js/applications.js"></script>
+
+    <script src="assets/js/reports.js"></script>
+
+    <script src="assets/js/settings.js"></script>
+
+    <script src="assets/js/app.js"></script>
 
 </body>
 
