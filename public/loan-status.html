@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Loan Status</title>
 
 <link rel="stylesheet" href="../css/style.css">
@@ -15,67 +16,49 @@
 
 <h1>🏦 OAS Management System</h1>
 
-<nav>
-<a href="../index.html">Home</a>
-<a href="about.html">About</a>
-<a href="contact.html">Contact</a>
-<a href="become-member.html">Become a Member</a>
-<a href="new-loan.html">New Loan</a>
-<a href="repeat-loan.html">Repeat Loan</a>
-<a href="loan-status.html">Loan Status</a>
-</nav>
-
 </header>
 
-<main>
+<main class="container">
 
-<h2>Check Loan Status</h2>
+<h2>Loan Status Inquiry</h2>
 
-<p>
-Enter your Loan Reference Number to check the current status of your application.
-</p>
-
-<form>
+<form id="statusForm">
 
 <label>Loan Reference Number</label>
 
-<input
-type="text"
-placeholder="Enter Loan Reference Number">
+<input type="text" id="referenceNo" placeholder="Enter Reference Number" required>
 
 <br><br>
 
 <button type="submit">
+
 Check Status
+
 </button>
 
 </form>
 
-<h3>Possible Status</h3>
+<br>
 
-<ul>
-
-<li>Pending Review</li>
-
-<li>Under Verification</li>
-
-<li>Approved</li>
-
-<li>Released</li>
-
-<li>Completed</li>
-
-<li>Declined</li>
-
-</ul>
+<div id="result"></div>
 
 </main>
 
-<footer>
+<script>
 
-<p>© 2026 OAS Management System</p>
+document.getElementById("statusForm").addEventListener("submit",function(e){
 
-</footer>
+e.preventDefault();
+
+const ref=document.getElementById("referenceNo").value;
+
+document.getElementById("result").innerHTML=
+
+"<h3>Loan Reference: "+ref+"</h3><p>Status: <strong>Pending Verification</strong></p>";
+
+});
+
+</script>
 
 </body>
 </html>
