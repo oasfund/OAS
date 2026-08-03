@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -17,39 +16,29 @@
 
 <h1>🏦 OAS Management System</h1>
 
-<nav>
-
-<a href="../index.html">Home</a>
-
-<a href="../public/about.html">About</a>
-
-<a href="../public/contact.html">Contact</a>
-
-<a href="login.html">Member Login</a>
-
-</nav>
-
 </header>
 
-<main>
+<main class="container">
 
 <h2>Member Login</h2>
 
-<form>
+<form id="loginForm">
 
 <label>Username</label>
 
 <input
 type="text"
-placeholder="Enter Username">
-
-<br><br>
+id="username"
+placeholder="Username"
+required>
 
 <label>Password</label>
 
 <input
 type="password"
-placeholder="Enter Password">
+id="password"
+placeholder="Password"
+required>
 
 <br><br>
 
@@ -61,30 +50,41 @@ Login
 
 </form>
 
-<p>
-
-Don't have an account?
-
-<a href="register.html">
-
-Register Here
-
-</a>
-
-</p>
-
 </main>
 
-<footer>
+<script src="../js/app.js"></script>
 
-<p>
+<script>
 
-© 2026 OAS Management System
+document.getElementById("loginForm").addEventListener("submit",function(e){
 
-</p>
+e.preventDefault();
 
-</footer>
+const username=document.getElementById("username").value;
+
+const password=document.getElementById("password").value;
+
+const members=JSON.parse(localStorage.getItem("oas_members"))||[];
+
+const member=members.find(m=>m.username===username&&m.password===password);
+
+if(member){
+
+localStorage.setItem("oas_current_member",JSON.stringify(member));
+
+alert("Welcome "+member.fullName);
+
+window.location="dashboard.html";
+
+}else{
+
+alert("Invalid Username or Password");
+
+}
+
+});
+
+</script>
 
 </body>
-
 </html>
