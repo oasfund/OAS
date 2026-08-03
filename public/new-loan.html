@@ -17,94 +17,126 @@
 
 <h1>💰 NEW LOAN APPLICATION</h1>
 
-<p>Non-Member Loan Application</p>
+<p>Outsider / Non-Member Loan Application</p>
 
 </header>
 
 <main class="container">
 
-<form id="loanForm">
+<h2>SECTION 1 — Borrower Information</h2>
 
-<label>Full Name</label>
+<label>Full Name *</label>
+<input type="text">
 
-<input
-type="text"
-id="fullName"
-required>
+<label>Complete Residential Address *</label>
+<textarea></textarea>
 
-<label>Mobile Number</label>
+<label>Contact Number *</label>
+<input type="text">
 
-<input
-type="text"
-id="mobile"
-required>
+<label>Facebook Profile Link *</label>
+<input type="text">
 
-<label>Complete Address</label>
+<label>Source of Income *</label>
+<input type="text">
 
-<textarea
-id="address"
-required></textarea>
+<hr>
 
-<label>Loan Amount</label>
+<h2>SECTION 2 — Loan Details</h2>
 
-<input
-type="number"
-id="amount"
-required>
+<label>Loan Type *</label>
 
-<label>Loan Purpose</label>
+<select>
 
-<textarea
-id="purpose"
-required></textarea>
+<option>Microloan</option>
 
-<br>
+<option>Standard STL</option>
 
-<button type="submit">
+<option>Extended STL</option>
 
-Submit Application
+</select>
+
+<label>Loan Amount *</label>
+
+<input type="number">
+
+<label>Purpose of Loan *</label>
+
+<textarea></textarea>
+
+<hr>
+
+<h2>SECTION 3 — Co-Maker Information</h2>
+
+<label>Select Co-Maker (OAS Member) *</label>
+
+<select>
+
+<option>Select Co-Maker</option>
+
+</select>
+
+<hr>
+
+<h2>SECTION 4 — Disbursement Information</h2>
+
+<label>Preferred Disbursement Channel *</label>
+
+<select>
+
+<option>GCash</option>
+
+<option>Maya</option>
+
+<option>Bank Transfer</option>
+
+</select>
+
+<label>Account Number / Mobile Number *</label>
+
+<input type="text">
+
+<hr>
+
+<h2>SECTION 5 — Requirements Upload</h2>
+
+<label>Government ID *</label>
+
+<input type="file">
+
+<label>Selfie Holding Government ID *</label>
+
+<input type="file">
+
+<label>GCash / Maya / Bank QR Code *</label>
+
+<input type="file">
+
+<hr>
+
+<h2>SECTION 6 — Digital Promissory Note</h2>
+
+<label>
+
+<input type="checkbox">
+
+I Agree and Accept the Promissory Note
+
+</label>
+
+<hr>
+
+<h2>SECTION 7 — Review</h2>
+
+<p>Application Status : <strong>Pending</strong></p>
+
+<button>
+
+Submit Loan Application
 
 </button>
 
-</form>
-
 </main>
-
-<script src="../js/app.js"></script>
-
-<script>
-
-document.getElementById("loanForm").addEventListener("submit",function(e){
-
-e.preventDefault();
-
-const loan={
-
-fullName:fullName.value,
-
-mobile:mobile.value,
-
-address:address.value,
-
-amount:Number(amount.value),
-
-purpose:purpose.value
-
-};
-
-const result=saveLoan(loan);
-
-alert(
-
-"Application Submitted Successfully!\n\nReference No.: "+result.reference
-
-);
-
-this.reset();
-
-});
-
-</script>
 
 </body>
 </html>
