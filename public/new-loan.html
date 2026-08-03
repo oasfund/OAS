@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>New Loan Application</title>
+<title>OAS Outsider Loan Application</title>
 
 <link rel="stylesheet" href="../css/style.css">
 
@@ -15,9 +15,9 @@
 
 <header>
 
-<h1>💰 NEW LOAN APPLICATION</h1>
+<h1>🏦 OAS FUND 2026</h1>
 
-<p>Outsider / Non-Member Loan Application</p>
+<p>OUTSIDER LOAN APPLICATION</p>
 
 </header>
 
@@ -26,19 +26,19 @@
 <h2>SECTION 1 — Borrower Information</h2>
 
 <label>Full Name *</label>
-<input type="text">
+<input type="text" id="fullName" required>
 
 <label>Complete Residential Address *</label>
-<textarea></textarea>
+<textarea id="address" required></textarea>
 
 <label>Contact Number *</label>
-<input type="text">
+<input type="text" id="contactNumber" required>
 
 <label>Facebook Profile Link *</label>
-<input type="text">
+<input type="text" id="facebookLink" required>
 
 <label>Source of Income *</label>
-<input type="text">
+<input type="text" id="sourceIncome" required>
 
 <hr>
 
@@ -46,23 +46,22 @@
 
 <label>Loan Type *</label>
 
-<select>
+<select id="loanType" required>
 
+<option value="">Select Loan Type</option>
 <option>Microloan</option>
-
 <option>Standard STL</option>
-
 <option>Extended STL</option>
 
 </select>
 
 <label>Loan Amount *</label>
 
-<input type="number">
+<input type="number" id="loanAmount" required>
 
 <label>Purpose of Loan *</label>
 
-<textarea></textarea>
+<textarea id="loanPurpose" required></textarea>
 
 <hr>
 
@@ -70,9 +69,9 @@
 
 <label>Select Co-Maker (OAS Member) *</label>
 
-<select>
+<select id="coMaker" required>
 
-<option>Select Co-Maker</option>
+<option value="">Select Co-Maker</option>
 
 </select>
 
@@ -82,35 +81,34 @@
 
 <label>Preferred Disbursement Channel *</label>
 
-<select>
+<select id="disbursement" required>
 
+<option value="">Select Channel</option>
 <option>GCash</option>
-
 <option>Maya</option>
-
 <option>Bank Transfer</option>
 
 </select>
 
 <label>Account Number / Mobile Number *</label>
 
-<input type="text">
+<input type="text" id="accountNumber" required>
 
 <hr>
 
 <h2>SECTION 5 — Requirements Upload</h2>
 
-<label>Government ID *</label>
+<label>Upload Valid Government ID *</label>
 
-<input type="file">
+<input type="file" id="governmentId" required>
 
-<label>Selfie Holding Government ID *</label>
+<label>Upload Selfie Holding Government ID *</label>
 
-<input type="file">
+<input type="file" id="selfieId" required>
 
-<label>GCash / Maya / Bank QR Code *</label>
+<label>Upload QR Code (GCash / Maya / Bank) *</label>
 
-<input type="file">
+<input type="file" id="qrCode" required>
 
 <hr>
 
@@ -118,7 +116,7 @@
 
 <label>
 
-<input type="checkbox">
+<input type="checkbox" id="agree" required>
 
 I Agree and Accept the Promissory Note
 
@@ -126,11 +124,15 @@ I Agree and Accept the Promissory Note
 
 <hr>
 
-<h2>SECTION 7 — Review</h2>
+<h2>SECTION 7 — Review & Submit</h2>
 
-<p>Application Status : <strong>Pending</strong></p>
+<div class="card">
 
-<button>
+<p><strong>Application Status:</strong> Pending</p>
+
+</div>
+
+<button type="submit">
 
 Submit Loan Application
 
@@ -138,5 +140,8 @@ Submit Loan Application
 
 </main>
 
+<script src="../js/app.js"></script>
+
 </body>
+
 </html>
