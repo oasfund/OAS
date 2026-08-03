@@ -1,19 +1,19 @@
-document.addEventListener("DOMContentLoaded", () => {
+const OAS = {
+members: JSON.parse(localStorage.getItem("oas_members")) || [],
 
-console.log("OAS Management System Loaded");
+save() {
+localStorage.setItem("oas_members", JSON.stringify(this.members));
+},
 
-const buttons = document.querySelectorAll(".btn");
+generateMemberID() {
+return "MEM-" + String(this.members.length + 1).padStart(6,"0");
+},
 
-buttons.forEach(button => {
-
-button.addEventListener("click", function(e){
-
-e.preventDefault();
-
-alert("This module is under development.");
-
-});
-
-});
-
-});
+register(member) {
+member.memberId = this.generateMemberID();
+member.dateCreated = new Date().toLocaleDateString();
+this.members.push(member);
+this.save();
+return member;
+}
+};
