@@ -15,28 +15,35 @@
 
 <header>
 
-<h1>💳 Collection Management</h1>
+<h1>💳 COLLECTION MANAGEMENT</h1>
+
+<nav>
+
+<a href="dashboard.html">Dashboard</a>
+<a href="members.html">Members</a>
+<a href="borrowers.html">Borrowers</a>
+<a href="loans.html">Loans</a>
+<a href="releases.html">Releases</a>
+<a href="collections.html">Collections</a>
+<a href="reports.html">Reports</a>
+
+</nav>
 
 </header>
 
 <main class="container">
 
-<h2>Loan Collections</h2>
+<h2>Released Loans</h2>
 
-<table border="1" width="100%" id="collectionTable">
+<table id="collectionTable">
 
 <tr>
 
 <th>Reference</th>
-
 <th>Borrower</th>
-
 <th>Loan Amount</th>
-
-<th>Payment</th>
-
+<th>Total Paid</th>
 <th>Balance</th>
-
 <th>Action</th>
 
 </tr>
@@ -59,6 +66,12 @@ let loans=JSON.parse(localStorage.getItem("oas_loans"))||[];
 
 const table=document.getElementById("collectionTable");
 
+function save(){
+
+localStorage.setItem("oas_loans",JSON.stringify(loans));
+
+}
+
 function load(){
 
 table.innerHTML=`
@@ -66,15 +79,10 @@ table.innerHTML=`
 <tr>
 
 <th>Reference</th>
-
 <th>Borrower</th>
-
 <th>Loan Amount</th>
-
-<th>Payment</th>
-
+<th>Total Paid</th>
 <th>Balance</th>
-
 <th>Action</th>
 
 </tr>
@@ -103,11 +111,11 @@ return;
 
 }
 
-released.forEach((loan,index)=>{
+released.forEach(loan=>{
 
-let payment=loan.payment||0;
+const paid=Number(loan.payment||0);
 
-let balance=Number(loan.amount)-payment;
+const balance=Number(loan.amount)-paid;
 
 table.innerHTML+=`
 
@@ -117,15 +125,15 @@ table.innerHTML+=`
 
 <td>${loan.fullName}</td>
 
-<td>₱${loan.amount}</td>
+<td>₱${Number(loan.amount).toFixed(2)}</td>
 
-<td>₱${payment}</td>
+<td>₱${paid.toFixed(2)}</td>
 
-<td>₱${balance}</td>
+<td>₱${balance.toFixed(2)}</td>
 
 <td>
 
-<button onclick="collect(${index})">
+<button onclick="collect('${loan.reference}')">
 
 Collect ₱100
 
@@ -141,23 +149,19 @@ Collect ₱100
 
 }
 
-function collect(index){
+function collect(reference){
 
-const released=loans.filter(x=>x.status==="Released");
+const loan=loans.find(x=>x.reference===reference);
 
-const ref=released[index].reference;
+loan.payment=Number(loan.payment||0)+100;
 
-const actual=loans.findIndex(x=>x.reference===ref);
+if(loan.payment>=Number(loan.amount)){
 
-loans[actual].payment=(loans[actual].payment||0)+100;
-
-if(loans[actual].payment>=Number(loans[actual].amount)){
-
-loans[actual].status="Completed";
+loan.status="Completed";
 
 }
 
-localStorage.setItem("oas_loans",JSON.stringify(loans));
+save();
 
 load();
 
@@ -168,5 +172,4 @@ load();
 </script>
 
 </body>
-
 </html>
