@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Loan Management</title>
+
+<link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+
+<header>
+
+<h1>💰 Loan Management</h1>
+
+</header>
+
+<main class="container">
+
+<h2>Loan Applications</h2>
+
+<table border="1" width="100%" id="loanTable">
+
+<tr>
+
+<th>Reference No.</th>
+
+<th>Borrower</th>
+
+<th>Amount</th>
+
+<th>Status</th>
+
+</tr>
+
+</table>
+
+<br>
+
+<button onclick="window.location='dashboard.html'">
+
+Back to Dashboard
+
+</button>
+
+</main>
+
+<script>
+
+const loans = JSON.parse(localStorage.getItem("oas_loans")) || [];
+
+const table = document.getElementById("loanTable");
+
+if(loans.length===0){
+
+table.innerHTML += `
+
+<tr>
+
+<td colspan="4" align="center">
+
+No Loan Applications Found
+
+</td>
+
+</tr>
+
+`;
+
+}else{
+
+loans.forEach(loan=>{
+
+table.innerHTML += `
+
+<tr>
+
+<td>${loan.reference}</td>
+
+<td>${loan.fullName}</td>
+
+<td>₱${loan.amount}</td>
+
+<td>${loan.status}</td>
+
+</tr>
+
+`;
+
+});
+
+}
+
+</script>
+
+</body>
+</html>
