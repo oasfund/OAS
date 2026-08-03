@@ -1,3 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>New Loan Application</title>
+
+<link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+
+<header>
+
+<h1>💰 NEW LOAN APPLICATION</h1>
+
+<p>Non-Member Loan Application</p>
+
+</header>
+
+<main class="container">
+
+<form id="loanForm">
+
+<label>Full Name</label>
+
+<input
+type="text"
+id="fullName"
+required>
+
+<label>Mobile Number</label>
+
+<input
+type="text"
+id="mobile"
+required>
+
+<label>Complete Address</label>
+
+<textarea
+id="address"
+required></textarea>
+
+<label>Loan Amount</label>
+
+<input
+type="number"
+id="amount"
+required>
+
+<label>Loan Purpose</label>
+
+<textarea
+id="purpose"
+required></textarea>
+
+<br>
+
+<button type="submit">
+
+Submit Application
+
+</button>
+
+</form>
+
+</main>
+
 <script src="../js/app.js"></script>
 
 <script>
@@ -8,17 +80,15 @@ e.preventDefault();
 
 const loan={
 
-fullName:document.querySelector('input[type="text"]').value,
+fullName:fullName.value,
 
-mobile:document.querySelector('input[type="tel"]').value,
+mobile:mobile.value,
 
-address:document.querySelector("textarea").value,
+address:address.value,
 
-amount:document.querySelector('input[type="number"]').value,
+amount:Number(amount.value),
 
-purpose:document.querySelectorAll("textarea")[1].value,
-
-status:"Pending"
+purpose:purpose.value
 
 };
 
@@ -26,7 +96,7 @@ const result=saveLoan(loan);
 
 alert(
 
-"Loan Application Submitted!\n\nReference No: "+result.reference
+"Application Submitted Successfully!\n\nReference No.: "+result.reference
 
 );
 
@@ -35,3 +105,6 @@ this.reset();
 });
 
 </script>
+
+</body>
+</html>
