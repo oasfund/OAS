@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loan Release</title>
+
+<link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+
+<header>
+
+<h1>💵 Loan Release</h1>
+
+</header>
+
+<main class="container">
+
+<h2>Approved Loans Ready for Release</h2>
+
+<table border="1" width="100%" id="loanTable">
+
+<tr>
+
+<th>Reference</th>
+
+<th>Borrower</th>
+
+<th>Amount</th>
+
+<th>Release</th>
+
+</tr>
+
+</table>
+
+<br>
+
+<button onclick="window.location='dashboard.html'">
+
+Back to Dashboard
+
+</button>
+
+</main>
+
+<script>
+
+let loans=JSON.parse(localStorage.getItem("oas_loans"))||[];
+
+const table=document.getElementById("loanTable");
+
+function load(){
+
+table.innerHTML=`
+
+<tr>
+
+<th>Reference</th>
+
+<th>Borrower</th>
+
+<th>Amount</th>
+
+<th>Release</th>
+
+</tr>
+
+`;
+
+const approved=loans.filter(x=>x.status==="Approved");
+
+if(approved.length===0){
+
+table.innerHTML+=`
+
+<tr>
+
+<td colspan="4" align="center">
+
+No Approved Loans
+
+</td>
+
+</tr>
+
+`;
+
+return;
+
+}
+
+approved.forEach(loan=>{
+
+table.innerHTML+=`
+
+<tr>
+
+<td>${loan.reference}</td>
+
+<td>${loan.fullName}</td>
+
+<td>₱${loan.amount}</td>
+
+<td>
+
+<button onclick="releaseLoan('${loan.reference}')">
+
+Release
+
+</button>
+
+</td>
+
+</tr>
+
+`;
+
+});
+
+}
+
+function releaseLoan(reference){
+
+const index=loans.findIndex(x=>x.reference===reference);
+
+if(index>-1){
+
+loans[index].status="Released";
+
+localStorage.setItem("oas_loans",JSON.stringify(loans));
+
+alert("Loan Released Successfully");
+
+load();
+
+}
+
+}
+
+load();
+
+</script>
+
+</body>
+</html>
